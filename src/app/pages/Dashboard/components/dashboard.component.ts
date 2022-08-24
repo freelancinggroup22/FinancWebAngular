@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 
-import { SharedService } from 'src/app/shared';
+import { SharedService } from '../../../shared';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,14 +8,14 @@ import { SharedService } from 'src/app/shared';
   styleUrls: ['./dashboard.component.sass'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private service: SharedService) {}
+  constructor(private sharedService: SharedService) {}
 
   @Output() transactionsDashboard: any;
 
   @Input() newTransaction: any;
 
   ngOnInit(): void {
-    this.transactionsDashboard = this.service.listarCarteiras();
+    this.transactionsDashboard = this.sharedService.listarCarteiras();
     console.log('Debugger in DashboardComponent:', this.transactionsDashboard);
   }
 
