@@ -12,6 +12,15 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 
+// Pages
+import {
+  DashboardModule,
+  HelpModule,
+  InvestmentModule,
+  SettingsModule,
+  WalletsModule,
+} from '../pages';
+
 // Components
 import {
   MenuComponent,
@@ -23,25 +32,6 @@ import {
 
 @NgModule({
   declarations: [
-    // Components
-    MenuComponent,
-    CalendarComponent,
-    CreateTransactionComponent,
-    TransactionsComponent,
-    ButtonComponent,
-  ],
-  exports: [
-    // NG Modules
-    AccordionModule,
-    MegaMenuModule,
-    TabMenuModule,
-    PanelModule,
-    CalendarModule,
-    TableModule,
-    AutoCompleteModule,
-    InputMaskModule,
-    DropdownModule,
-
     // Components
     MenuComponent,
     CalendarComponent,
@@ -61,6 +51,39 @@ import {
     AutoCompleteModule,
     InputMaskModule,
     DropdownModule,
+
+    // Pages
+    DashboardModule,
+    HelpModule,
+    InvestmentModule,
+    SettingsModule,
+    WalletsModule,
+  ],
+  exports: [
+    // NG Modules
+    AccordionModule,
+    MegaMenuModule,
+    TabMenuModule,
+    PanelModule,
+    CalendarModule,
+    TableModule,
+    AutoCompleteModule,
+    InputMaskModule,
+    DropdownModule,
+
+    // Pages
+    DashboardModule,
+    HelpModule,
+    InvestmentModule,
+    SettingsModule,
+    WalletsModule,
+
+    // Components
+    MenuComponent,
+    CalendarComponent,
+    CreateTransactionComponent,
+    TransactionsComponent,
+    ButtonComponent,
   ],
 })
 export class SharedModule {}
