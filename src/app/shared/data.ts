@@ -1,6 +1,5 @@
-let date = new Date();
-let dataFormatada =
-  date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+const date = new Date();
+const dataFormatada = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
 export const data = {
   transactions: {

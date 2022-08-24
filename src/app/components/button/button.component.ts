@@ -10,7 +10,7 @@ export class ButtonComponent implements OnInit {
 
   @Input() title: string | undefined;
   @Output() buttonEmit: any = new EventEmitter();
-  buttonState: boolean = false;
+  buttonState = false;
 
   ngOnInit(): void {}
 
