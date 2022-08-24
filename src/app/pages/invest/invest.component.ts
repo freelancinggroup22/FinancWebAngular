@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-invest',
   templateUrl: './invest.component.html',
-  styleUrls: ['./invest.component.sass']
+  styleUrls: ['./invest.component.sass'],
 })
 export class InvestComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
