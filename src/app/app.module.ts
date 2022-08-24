@@ -9,23 +9,28 @@ import { SharedModule } from './shared';
 
 // Pages
 import {
-  DashboardComponent,
-  WalletsComponent,
-  InvestComponent,
-  SettingsComponent,
-  HelpComponent,
+  DashboardModule,
+  HelpModule,
+  InvestmentModule,
+  SettingsModule,
+  WalletsModule,
 } from './pages';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    WalletsComponent,
-    InvestComponent,
-    SettingsComponent,
-    HelpComponent,
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    BrowserAnimationsModule,
+
+    // Pages
+    DashboardModule,
+    HelpModule,
+    InvestmentModule,
+    SettingsModule,
+    WalletsModule,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

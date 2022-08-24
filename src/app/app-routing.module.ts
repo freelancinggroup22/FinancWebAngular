@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   DashboardComponent,
   HelpComponent,
-  InvestComponent,
+  InvestmentComponent,
   SettingsComponent,
   WalletsComponent,
 } from './pages';
@@ -13,7 +13,7 @@ import {
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'investment', component: InvestComponent },
+  { path: 'investment', component: InvestmentComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'wallets', component: WalletsComponent },
 ];

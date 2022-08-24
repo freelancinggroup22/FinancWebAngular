@@ -1,2 +1,2 @@
-export * from './components/invest.component';
+export * from './components/investment.component';
 export * from './investment.module';

@@ -12,15 +12,6 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 
-// Pages
-import {
-  DashboardModule,
-  HelpModule,
-  InvestmentModule,
-  SettingsModule,
-  WalletsModule,
-} from '../pages';
-
 // Components
 import {
   MenuComponent,
@@ -29,6 +20,8 @@ import {
   TransactionsComponent,
   ButtonComponent,
 } from '../components';
+
+// Pages Components
 
 @NgModule({
   declarations: [
@@ -51,13 +44,6 @@ import {
     AutoCompleteModule,
     InputMaskModule,
     DropdownModule,
-
-    // Pages
-    DashboardModule,
-    HelpModule,
-    InvestmentModule,
-    SettingsModule,
-    WalletsModule,
   ],
   exports: [
     // NG Modules
@@ -70,13 +56,6 @@ import {
     AutoCompleteModule,
     InputMaskModule,
     DropdownModule,
-
-    // Pages
-    DashboardModule,
-    HelpModule,
-    InvestmentModule,
-    SettingsModule,
-    WalletsModule,
 
     // Components
     MenuComponent,
