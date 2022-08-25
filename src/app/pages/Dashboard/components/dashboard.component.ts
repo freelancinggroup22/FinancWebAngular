@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 
-import { SharedService } from '../../../shared';
+import { SharedService } from 'src/app/shared';
 
 @Component({
   selector: 'app-dashboard',

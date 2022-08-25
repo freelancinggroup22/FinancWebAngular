@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+import { AuthService } from 'src/app/Auth';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private authService: AuthService, private formBuilder: FormBuilder) {}
 
   loginForms!: FormGroup;
 
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
-    console.log('Debugger in LoginComponent:', this.loginForms);
+  userLogin() {
+    this.authService.login(this.loginForms.value);
   }
 }

@@ -16,7 +16,7 @@ import {
   WalletsModule,
 } from './pages';
 
-import { LoginComponent } from './Auth/components/login/login.component';
+import { AuthService, LoginComponent } from './Auth';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -34,7 +34,7 @@ import { LoginComponent } from './Auth/components/login/login.component';
     SettingsModule,
     WalletsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

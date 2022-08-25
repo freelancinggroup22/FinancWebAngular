@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { data } from '../data';
+import { data } from 'src/app/shared/data';
 
 @Injectable({
   providedIn: 'root',

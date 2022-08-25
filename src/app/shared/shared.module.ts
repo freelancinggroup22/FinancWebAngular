@@ -20,7 +20,7 @@ import {
   CreateTransactionComponent,
   TransactionsComponent,
   ButtonComponent,
-} from '../components';
+} from 'src/app/components';
 
 // Pages Components
 

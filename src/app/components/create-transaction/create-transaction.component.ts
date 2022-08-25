@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 
-import { TransactionTypes } from '../../shared';
+import { TransactionTypes } from 'src/app/shared';
 
 type statusSelectedTypes = {
   status: 'Pago' | 'Pendente' | 'Planejado';
