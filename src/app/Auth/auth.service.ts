@@ -13,7 +13,12 @@ export class AuthService {
   constructor(private router: Router) {}
 
   login(usuario: UserTypes) {
-    if (usuario.username !== '' && usuario.password !== '') {
+    if (
+      usuario.username != '' &&
+      usuario.password != '' &&
+      usuario.username != null &&
+      usuario.password != null
+    ) {
       console.log('Debugger in AuthService:', usuario);
 
       this.authenticatedUser = true;
