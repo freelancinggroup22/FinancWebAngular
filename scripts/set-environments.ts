@@ -7,7 +7,7 @@ type EnvConfig = {
 };
 
 const setEnvironments = () => {
-  const environments = ['API_URL'];
+  const environments = ['PORT'];
   const envConfig = {
     environments: {
       production: false,
