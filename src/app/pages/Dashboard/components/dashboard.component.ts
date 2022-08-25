@@ -16,16 +16,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.transactionsDashboard = this.sharedService.listarCarteiras();
-    console.log('Debugger in DashboardComponent:', this.transactionsDashboard);
   }
 
   transactionButton() {
-    console.log('Debugger in DashboardComponent:', !this.newTransaction);
-
     return !this.newTransaction;
   }
 
-  handleButtonEmit(event: any) {
-    console.log('Debugger in DashboardComponent:', event);
-  }
+  handleButtonEmit(event: any) {}
 }

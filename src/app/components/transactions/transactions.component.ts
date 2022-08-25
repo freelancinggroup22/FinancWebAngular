@@ -22,7 +22,5 @@ export class TransactionsComponent implements OnInit {
       { field: 'installments', header: 'P' },
       { field: 'status', header: 'Status' },
     ];
-
-    console.log('Debugger in TransactionsComponent:', this.transactions);
   }
 }
