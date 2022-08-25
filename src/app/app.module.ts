@@ -16,13 +16,16 @@ import {
   WalletsModule,
 } from './pages';
 
+import { LoginComponent } from './Auth/components/login/login.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     BrowserAnimationsModule,
+
+    SharedModule,
 
     // Pages
     DashboardModule,

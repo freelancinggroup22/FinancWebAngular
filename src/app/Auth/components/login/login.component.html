@@ -1,0 +1,39 @@
+<div class="p-d-flex p-jc-center">
+  <p-panel class="p-col-6 p-d-flex p-jc-center" header="Login">
+    <form action="loginForms">
+      <div class="p-col-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="text" pInputText placeholder="Username" />
+        </div>
+      </div>
+
+      <div class="p-col-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input type="text" pInputText placeholder="Password" />
+        </div>
+      </div>
+      <div class="p-col-12">
+        <div class="p-d-flex p-jc-between">
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Sair"
+            icon="pi pi-times"
+            class="p-button-danger"
+          ></button>
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Logar"
+            icon="pi pi-check"
+            onsubmit="loginForms"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </p-panel>
+</div>
