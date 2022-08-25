@@ -16,13 +16,16 @@ import {
   WalletsModule,
 } from './pages';
 
+import { AuthService, LoginComponent } from './Auth';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     BrowserAnimationsModule,
+
+    SharedModule,
 
     // Pages
     DashboardModule,
@@ -31,7 +34,7 @@ import {
     SettingsModule,
     WalletsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

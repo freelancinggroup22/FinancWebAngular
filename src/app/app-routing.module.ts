@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+// Auth
+import { LoginComponent } from './Auth';
+
 // Pages
 import {
   DashboardComponent,
@@ -11,6 +14,7 @@ import {
 } from './pages';
 
 const routes: Routes = [
+  { path: 'auth/login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'help', component: HelpComponent },
   { path: 'investment', component: InvestmentComponent },

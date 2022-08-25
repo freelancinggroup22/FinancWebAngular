@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 
-import { TransactionTypes } from '../../shared';
+import { TransactionTypes } from 'src/app/shared';
+
+type statusSelectedTypes = {
+  status: 'Pago' | 'Pendente' | 'Planejado';
+};
 
 @Component({
   selector: 'app-create-transaction',
@@ -14,25 +18,24 @@ export class CreateTransactionComponent implements OnInit {
 
   text: string | undefined;
   results: string[] = [];
-  statusSelected: any;
+  statusSelected!: statusSelectedTypes;
   stateStatusts: TransactionTypes | undefined;
 
-  newTransaction = new FormGroup({
-    name: new FormControl(''),
-    date: new FormControl(''),
-    value: new FormControl(0.0),
-    status: new FormControl(),
-    category: new FormControl(),
-    description: new FormControl(),
-    installments: new FormControl(),
-  });
+  newTransaction!: FormGroup;
 
   ngOnInit(): void {
+    this.newTransaction = new FormGroup({
+      name: new FormControl(''),
+      date: new FormControl(''),
+      value: new FormControl(0.0),
+      status: new FormControl(),
+      category: new FormControl(),
+      description: new FormControl(),
+      installments: new FormControl(),
+    });
     this.stateStatusts = { status: 'Pago' };
     this.primengConfig.ripple = true;
   }
 
-  search(event: any) {
-    console.log('Debugger in CreateTransactionComponent:', event);
-  }
+  search(event: any) {}
 }

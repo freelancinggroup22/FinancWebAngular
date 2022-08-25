@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Ng Components
 import { AccordionModule } from 'primeng/accordion';
@@ -19,7 +20,7 @@ import {
   CreateTransactionComponent,
   TransactionsComponent,
   ButtonComponent,
-} from '../components';
+} from 'src/app/components';
 
 // Pages Components
 
@@ -34,6 +35,11 @@ import {
   ],
   imports: [
     CommonModule,
+
+    // Forms
+    FormsModule,
+    ReactiveFormsModule,
+
     // NG Modules
     AccordionModule,
     MegaMenuModule,
@@ -46,6 +52,10 @@ import {
     DropdownModule,
   ],
   exports: [
+    // Forms
+    FormsModule,
+    ReactiveFormsModule,
+
     // NG Modules
     AccordionModule,
     MegaMenuModule,

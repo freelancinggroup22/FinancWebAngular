@@ -1,45 +1,27 @@
-<form (formGroup)="(newTransaction)">
+<form [formGroup]="newTransaction">
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col">
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
-        <input
-          type="text"
-          pInputText
-          placeholder="Transação"
-          formControlName="name"
-        />
+        <input type="text" pInputText placeholder="Transação" formControlName="name" />
       </div>
     </div>
 
     <div class="p-field p-col">
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
-        <input
-          type="text"
-          pInputText
-          placeholder="Valor"
-          formControlName="value"
-        />
+        <input type="text" pInputText placeholder="Valor" formControlName="value" />
       </div>
     </div>
     <div class="p-field p-col">
       <div class="p-inputgroup">
-        <p-dropdown
-          [options]="statusSelected"
-          optionLabel="status"
-        ></p-dropdown>
+        <p-dropdown (options)="(statusSelected)" optionLabel="status"></p-dropdown>
       </div>
     </div>
     <div class="p-field p-col">
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
-        <input
-          type="text"
-          pInputText
-          placeholder="Categoria"
-          formControlName="category"
-        />
+        <input type="text" pInputText placeholder="Categoria" formControlName="category" />
       </div>
     </div>
   </div>
