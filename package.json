@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "eslint --ext ts --fix src/**/*.ts",
     "release": "standard-version",
-    "prepare": "husky install",
-    "config": "ts-node scripts/set-environments.ts"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
