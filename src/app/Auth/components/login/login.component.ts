@@ -15,12 +15,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForms = this.formBuilder.group({
-      username: [null],
+      email: [null],
       password: [null],
     });
   }
 
-  userLogin() {
-    this.authService.login(this.loginForms.value);
+  handleLogin() {
+    this.authService.userLogin(this.loginForms.value);
+  }
+
+  handleRegister() {
+    this.authService.callRegister();
   }
 }

@@ -17,9 +17,10 @@ import {
 } from './pages';
 
 import { AuthService, LoginComponent, AuthGuard } from './Auth';
+import { RegisterComponent } from './Auth/components/register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

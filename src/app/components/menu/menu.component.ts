@@ -43,6 +43,6 @@ export class MenuComponent implements OnInit {
   }
 
   signOut() {
-    this.authService.logout();
+    this.authService.callLogout();
   }
 }

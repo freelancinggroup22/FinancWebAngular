@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Auth
-import { LoginComponent, AuthGuard } from './Auth';
+import { LoginComponent, RegisterComponent, AuthGuard } from './Auth';
 
 // Pages
 import {
@@ -23,9 +23,9 @@ const routes: Routes = [
 
   // Auth
   { path: 'login', component: LoginComponent },
-
+  { path: 'register', component: RegisterComponent },
   // Home
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

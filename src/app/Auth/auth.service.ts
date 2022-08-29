@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { UserTypes } from 'src/app/Auth';
 
+import { v4 as uuidv4 } from 'uuid';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,24 +12,30 @@ export class AuthService {
   // private usuario!: UsuarioTypes;
   private authenticatedUser = false;
 
+  private uuid = uuidv4();
+
   constructor(private router: Router) {}
 
   showMenuEmmiter = new EventEmitter<boolean>();
 
-  login(usuario: UserTypes) {
-    if (
-      usuario.username != '' &&
-      usuario.password != '' &&
-      usuario.username != null &&
-      usuario.password != null
-    ) {
-      this.authenticatedUser = true;
-      this.showMenuEmmiter.emit(true);
+  changeValuesAuthMenu(state: boolean, router?: string) {
+    this.authenticatedUser = state;
+    this.showMenuEmmiter.emit(state);
+    this.router.navigate([router]);
+  }
 
-      this.router.navigate(['/dashboard']);
+  userLogin(user: UserTypes) {
+    if (user.email != '' && user.password != '' && user.email != null && user.password != null) {
+      this.changeValuesAuthMenu(true, '/dashboard');
     } else {
-      this.authenticatedUser = false;
-      this.showMenuEmmiter.emit(false);
+      this.changeValuesAuthMenu(false);
+    }
+  }
+
+  userRegister(user: UserTypes) {
+    if (user.email != '' && user.email != null) {
+      user.id = this.uuid;
+      this.router.navigate(['login']);
     }
   }
 
@@ -35,9 +43,11 @@ export class AuthService {
     return this.authenticatedUser;
   }
 
-  logout() {
-    this.authenticatedUser = false;
-    this.showMenuEmmiter.emit(false);
-    return this.router.navigate(['/login']);
+  callRegister() {
+    this.router.navigate(['register']);
+  }
+
+  callLogout() {
+    this.changeValuesAuthMenu(false, '/login');
   }
 }

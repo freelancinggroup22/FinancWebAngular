@@ -1,0 +1,81 @@
+<div class="p-d-flex p-jc-center" style="padding-top: 20vh; padding-bottom: 20vh">
+  <p-panel header="Registrar Novo Usuario" class="p-lg-4">
+    <form [formGroup]="userRegister">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input
+              type="text"
+              pInputText
+              placeholder="Username"
+              formControlName="username"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+            <input
+              type="email"
+              pInputText
+              placeholder="email"
+              class="p-inputtext-lg"
+              formControlName="email"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+
+        <div class="p-col-12 p-d-flex">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input
+              type="password"
+              pInputText
+              placeholder="Password"
+              style="width: 100%"
+              formControlName="password"
+            />
+          </div>
+
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input
+              type="password"
+              pInputText
+              placeholder="Confirm Password"
+              style="width: 100%"
+              formControlName="confirmpassword"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="p-col-12"></div>
+
+      <div class="p-col-12 p-d-flex p-jc-between">
+        <button
+          pButton
+          sssss
+          label="Sair"
+          icon="pi pi-sign-out"
+          class="p-button-danger"
+          (click)="handleLogin()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="submit"
+          label="Ok"
+          iconPos="right"
+          icon="pi pi-check"
+          class="p-button-success"
+          (click)="handleUserRegister()"
+        ></button>
+      </div>
+    </form>
+  </p-panel>
+</div>
