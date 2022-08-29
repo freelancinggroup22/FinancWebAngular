@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from './../../Auth/auth.service';
+
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,6 +10,8 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./menu.component.sass'],
 })
 export class MenuComponent implements OnInit {
+  constructor(private authService: AuthService) {}
+
   items: MenuItem[] = [];
 
   activeItem: MenuItem = this.items[0];
@@ -36,5 +40,9 @@ export class MenuComponent implements OnInit {
         routerLink: '/settings',
       },
     ];
+  }
+
+  signOut() {
+    this.authService.logout();
   }
 }

@@ -20,6 +20,8 @@ const routes: Routes = [
   { path: 'investment', component: InvestmentComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'wallets', component: WalletsComponent },
+
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
 ];
 
 @NgModule({

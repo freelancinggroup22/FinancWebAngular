@@ -1,1 +1,10 @@
-<p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+<p-menubar [model]="items">
+  <button
+    pButton
+    label="Sair"
+    iconPos="right"
+    icon="pi pi-sign-out"
+    class="p-button-rounded p-button-danger"
+    (click)="signOut()"
+  ></button>
+</p-menubar>

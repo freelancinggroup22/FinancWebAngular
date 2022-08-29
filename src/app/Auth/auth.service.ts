@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserTypes } from 'src/app/Auth';
@@ -12,6 +12,8 @@ export class AuthService {
 
   constructor(private router: Router) {}
 
+  showMenuEmmiter = new EventEmitter<boolean>();
+
   login(usuario: UserTypes) {
     if (
       usuario.username != '' &&
@@ -19,13 +21,18 @@ export class AuthService {
       usuario.username != null &&
       usuario.password != null
     ) {
-      console.log('Debugger in AuthService:', usuario);
-
       this.authenticatedUser = true;
+      this.showMenuEmmiter.emit(true);
 
       this.router.navigate(['/dashboard']);
     } else {
-      this.authenticatedUser = false;
+      this.logout();
     }
+  }
+
+  logout() {
+    this.authenticatedUser = false;
+    this.showMenuEmmiter.emit(false);
+    this.router.navigate(['/']);
   }
 }
