@@ -26,13 +26,18 @@ export class AuthService {
 
       this.router.navigate(['/dashboard']);
     } else {
-      this.logout();
+      this.authenticatedUser = false;
+      this.showMenuEmmiter.emit(false);
     }
+  }
+
+  isAuthenticateUser() {
+    return this.authenticatedUser;
   }
 
   logout() {
     this.authenticatedUser = false;
     this.showMenuEmmiter.emit(false);
-    this.router.navigate(['/']);
+    return this.router.navigate(['/login']);
   }
 }

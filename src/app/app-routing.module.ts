@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Auth
-import { LoginComponent } from './Auth';
+import { LoginComponent, AuthGuard } from './Auth';
 
 // Pages
 import {
@@ -14,14 +14,18 @@ import {
 } from './pages';
 
 const routes: Routes = [
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'help', component: HelpComponent },
-  { path: 'investment', component: InvestmentComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'wallets', component: WalletsComponent },
+  // Pages
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'help', component: HelpComponent, canActivate: [AuthGuard] },
+  { path: 'investment', component: InvestmentComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'wallets', component: WalletsComponent, canActivate: [AuthGuard] },
 
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  // Auth
+  { path: 'login', component: LoginComponent },
+
+  // Home
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
