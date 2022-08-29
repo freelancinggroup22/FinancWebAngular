@@ -1,4 +1,4 @@
 <div class="p-d-flex p-flex-column">
-  <div class="p-mb-4"><app-menu></app-menu></div>
+  <div class="p-mb-4" *ngIf="isAuthenticate"><app-menu></app-menu></div>
   <div class="p-mb-4"><router-outlet></router-outlet></div>
 </div>

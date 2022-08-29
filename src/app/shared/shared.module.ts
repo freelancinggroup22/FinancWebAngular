@@ -12,6 +12,7 @@ import { TableModule } from 'primeng/table';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
+import { MenubarModule } from 'primeng/menubar';
 
 // Components
 import {
@@ -21,8 +22,6 @@ import {
   TransactionsComponent,
   ButtonComponent,
 } from 'src/app/components';
-
-// Pages Components
 
 @NgModule({
   declarations: [
@@ -50,6 +49,7 @@ import {
     AutoCompleteModule,
     InputMaskModule,
     DropdownModule,
+    MenubarModule,
   ],
   exports: [
     // Forms
@@ -66,6 +66,7 @@ import {
     AutoCompleteModule,
     InputMaskModule,
     DropdownModule,
+    MenubarModule,
 
     // Components
     MenuComponent,

@@ -1,4 +1,7 @@
 export interface UserTypes {
-  username: string;
-  password: string;
+  id?: string;
+  username?: string;
+  password?: string;
+  email?: string;
+  finances?: [];
 }
