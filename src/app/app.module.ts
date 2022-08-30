@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import {
   WalletsModule,
 } from './pages';
 
-import { AuthService, LoginComponent, AuthGuard } from './Auth';
+import { SharedService } from 'src/app/shared';
+import { AuthGuard, AuthService, LoginComponent } from './Auth';
 import { RegisterComponent } from './Auth/components/register/register.component';
 
 @NgModule({
@@ -25,6 +27,7 @@ import { RegisterComponent } from './Auth/components/register/register.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     SharedModule,
 
@@ -35,7 +38,7 @@ import { RegisterComponent } from './Auth/components/register/register.component
     SettingsModule,
     WalletsModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, SharedService, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

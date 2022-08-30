@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from './../../Auth/auth.service';
+import { AuthService } from 'src/app/Auth/auth.service';
 
 import { MenuItem } from 'primeng/api';
 
@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   items: MenuItem[] = [];
+  urlAvatar = 'assets/showcase/images/demo/walter.jpg';
 
   activeItem: MenuItem = this.items[0];
 

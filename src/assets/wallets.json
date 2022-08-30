@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Itau",
+      "income": 3000,
+      "outcome": 700,
+      "type": "Salario"
+    },
+    {
+      "id": "2",
+      "name": "Bradesco",
+      "income": 1000,
+      "outcome": 500,
+      "type": "Freelas"
+    },
+    {
+      "id": "3",
+      "name": "Inter",
+      "income": 2000,
+      "outcome": 300,
+      "type": "Dividendo"
+    },
+    {
+      "id": "4",
+      "name": "Mercado Pago",
+      "income": 2000,
+      "outcome": 5000,
+      "type": "Vendas"
+    },
+    {
+      "id": "5",
+      "name": "Viagem",
+      "income": 4000,
+      "outcome": 1000,
+      "type": "Investimento"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserTypes } from 'src/app/Auth';
+import { UserTypes } from 'src/app/shared';
 
 @Injectable({
   providedIn: 'root',
