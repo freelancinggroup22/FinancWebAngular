@@ -1,6 +1,6 @@
 <div class="p-d-flex p-jc-center" style="padding-top: 20vh; padding-bottom: 20vh">
   <p-panel header="Login" class="p-md-3">
-    <form [formGroup]="loginForms" class="p-grid p-flex-column">
+    <div [formGroup]="loginForms" class="p-grid p-flex-column">
       <div class="p-col-12 p-inputgroup">
         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
         <input
@@ -42,6 +42,6 @@
           (click)="handleLogin()"
         ></button>
       </div>
-    </form>
+    </div>
   </p-panel>
 </div>

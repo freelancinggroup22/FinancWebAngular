@@ -1,4 +1,15 @@
 <p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <p-avatar
+      image="assets/showcase/images/demo/walter.jpg"
+      pBadge
+      value="4"
+      severity="danger"
+      styleClass="p-mr-2"
+      size="xlarge"
+      shape="circle"
+    ></p-avatar>
+  </ng-template>
   <button
     pButton
     label="Sair"

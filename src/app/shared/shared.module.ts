@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Ng Components
 import { AccordionModule } from 'primeng/accordion';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { PanelModule } from 'primeng/panel';
@@ -41,6 +43,8 @@ import {
 
     // NG Modules
     AccordionModule,
+    AvatarModule,
+    AvatarGroupModule,
     MegaMenuModule,
     TabMenuModule,
     PanelModule,
@@ -58,6 +62,8 @@ import {
 
     // NG Modules
     AccordionModule,
+    AvatarModule,
+    AvatarGroupModule,
     MegaMenuModule,
     TabMenuModule,
     PanelModule,

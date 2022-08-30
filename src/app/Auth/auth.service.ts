@@ -3,16 +3,12 @@ import { Router } from '@angular/router';
 
 import { UserTypes } from 'src/app/Auth';
 
-import { v4 as uuidv4 } from 'uuid';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   // private usuario!: UsuarioTypes;
   private authenticatedUser = false;
-
-  private uuid = uuidv4();
 
   constructor(private router: Router) {}
 
@@ -34,7 +30,8 @@ export class AuthService {
 
   userRegister(user: UserTypes) {
     if (user.email != '' && user.email != null) {
-      user.id = this.uuid;
+      console.log('Debugger in AuthService:', user);
+
       this.router.navigate(['login']);
     }
   }

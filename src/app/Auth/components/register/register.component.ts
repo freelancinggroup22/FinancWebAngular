@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/Auth';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.sass'],
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.userRegister = this.formBuilder.group({
-      username: [null],
+      name: [null],
       email: [null],
       password: [null],
       confirmpassword: [null],
