@@ -1,6 +1,7 @@
 <div class="card-transaction" *ngFor="let transaction of objeto">
   <div class="icon + {{ transaction.flow }}">
     <i class="pi + {{ transaction.iconCategory }}"></i>
+    <span>{{ transaction.status }}</span>
   </div>
   <div class="card-body">
     <div class="card-info">
@@ -9,6 +10,8 @@
     </div>
     <div class="card-price">
       <h2>{{ functionalities.formatCurrency(transaction.value) }}</h2>
+
+      <span class="card-span">{{ transaction.date }}</span>
     </div>
   </div>
 </div>

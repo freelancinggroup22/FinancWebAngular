@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { SharedService, TransactionTypes } from 'src/app/shared';
 import { Functionalities } from 'src/app/functions';
@@ -11,22 +11,21 @@ import { Functionalities } from 'src/app/functions';
 export class CardTransactionComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
-  objeto!: any[];
+  objeto!: TransactionTypes[];
+
+  @Input() idWallet!: number;
 
   functionalities = new Functionalities();
 
   ngOnInit(): void {
-    // this.sharedService.getWallets().then((wallets) => {
-    //   return wallets.map((wallet) => {
-    //     if (wallet.transactions) {
-    //       console.log('Debugger in CardTransactionComponent:', this.objeto);
-    //       return this.objeto?.push(...wallet.transactions);
-    //     }
-    //     return this.objeto;
-    //   });
-    // });
+    this.sharedService.idWallets.subscribe((id) => {
+      this.idWallet = id;
+      this.callCards(id);
+    });
+  }
 
-    this.sharedService.getOneWallet(1).then((wallets) => {
+  callCards(id: number) {
+    this.sharedService.getOneWallet(id).then((wallets) => {
       return wallets.map((wallet) => {
         if (wallet.transactions) {
           return (this.objeto = wallet.transactions);

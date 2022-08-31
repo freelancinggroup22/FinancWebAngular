@@ -15,10 +15,9 @@ interface BarsTypes {
   styleUrls: ['./carousel-wallets.component.scss'],
 })
 export class CarouselWalletsComponent implements OnInit {
-  wallets!: WalletsTypes[];
-
   functionalities = new Functionalities();
 
+  wallets!: WalletsTypes[];
   bars: BarsTypes[] = [];
 
   constructor(private sharedService: SharedService) {}
@@ -33,12 +32,17 @@ export class CarouselWalletsComponent implements OnInit {
         this.wallets.map((element) => {
           const { income, outcome } = element;
           const { _income, _outcome } = this.functionalities.calculatePercentage(
-            Number(income?.toFixed(0)),
-            Number(outcome?.toFixed(0)),
+            Number(income),
+            Number(outcome),
           );
 
+          this.emmitIdWallet();
           this.bars.push({ bar1: _income, bar2: _outcome });
         }),
       );
+  }
+
+  emmitIdWallet(id = 0) {
+    this.sharedService.getIdWallet(id);
   }
 }
