@@ -16,7 +16,7 @@ export class Functionalities {
     return { bar1, bar2 };
   };
 
-  formatCurrency(value: number, currency: CurrencyTypes): string {
+  formatCurrency(value = 0, currency: CurrencyTypes = 'BRL'): string {
     const price = new Intl.NumberFormat(CurrencyLangs[currency], {
       style: 'currency',
       currency,
@@ -41,4 +41,11 @@ export class Functionalities {
 
     return { _income, _outcome };
   };
+
+  formatText(text = '') {
+    if (text != '') {
+      return text[0].toUpperCase() + text.substring(1);
+    }
+    return;
+  }
 }

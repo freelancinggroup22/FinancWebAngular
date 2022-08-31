@@ -1,21 +1,31 @@
 <div class="p-grid nested-grid">
   <div class="p-col-4">
-    <p-panel header="Calendário" class="box box-stretched"><app-calendar></app-calendar></p-panel>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-panel header="Calendário" class="box box-stretched" [toggleable]="true"
+          ><app-calendar></app-calendar
+        ></p-panel>
+      </div>
+
+      <div class="p-col-12">
+        <p-panel header="Investimentos" class="box box-stretched"></p-panel>
+      </div>
+    </div>
   </div>
   <div class="p-col-8">
     <div class="p-grid">
       <div class="p-col-12">
-        <p-panel header="Carteiras" class="wallets-container">
+        <p-panel header="Carteiras" styleClass="dark-panel">
           <app-carousel-wallets></app-carousel-wallets>
         </p-panel>
       </div>
-      <div class="p-col-6">
+      <div class="p-col-12">
         <p-panel header="Transações" class="box box-stretched">
           <div class="p-grid">
             <div class="p-col-12">
-              <app-transactions [transactions]="transactionsDashboard.janeiro"></app-transactions>
+              <app-transactions [transactions]="transactionsDashboard"></app-transactions>
             </div>
-            <div class="p-col-12 p-d-flex p-jc-end">
+            <!-- <div class="p-col-12 p-d-flex p-jc-end">
               <app-button
                 title="Nova Transação"
                 (buttonEmit)="handleButtonEmit($event)"
@@ -26,12 +36,9 @@
               <p-panel header="Nova Transação">
                 <app-create-transaction></app-create-transaction>
               </p-panel>
-            </div>
+            </div> -->
           </div>
         </p-panel>
-      </div>
-      <div class="p-col-6">
-        <p-panel header="Investimentos" class="box box-stretched"></p-panel>
       </div>
     </div>
   </div>

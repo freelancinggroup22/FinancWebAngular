@@ -1,39 +1,89 @@
 {
   "data": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Itau",
       "income": 3000,
       "outcome": 700,
-      "type": "Salario"
+      "type": "Salario",
+      "transactions": [
+        {
+          "name": "Salario",
+          "date": "5/8/2022",
+          "value": 3800,
+          "status": "Pendente",
+          "category": "salario",
+          "flow": "income",
+          "description": "combo",
+          "installments": [1],
+          "iconCategory": "pi-wallet"
+        },
+        {
+          "name": "Adega",
+          "date": "5/8/2022",
+          "value": 31.0,
+          "status": "Pendente",
+          "category": "compras",
+          "flow": "outcome",
+          "description": "combo",
+          "installments": [1],
+          "iconCategory": "pi-shopping-cart"
+        },
+        {
+          "name": "Mercado livre",
+          "date": "6/8/2022",
+          "value": 35.0,
+          "status": "Pago",
+          "category": "vendas",
+          "flow": "income",
+          "description": "palmilha",
+          "installments": [1],
+          "iconCategory": "pi-money-bill"
+        },
+        {
+          "name": "Memoria Ram",
+          "date": "8/8/2022",
+          "value": 465.0,
+          "status": "Planejado",
+          "category": "compras",
+          "flow": "outcome",
+          "description": "memoria ram pc",
+          "installments": [2],
+          "iconCategory": "pi-shopping-cart"
+        }
+      ]
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Bradesco",
       "income": 1000,
       "outcome": 500,
-      "type": "Freelas"
+      "type": "Freelas",
+      "transactions": []
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Inter",
       "income": 2000,
       "outcome": 300,
-      "type": "Dividendo"
+      "type": "Dividendo",
+      "transactions": []
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Mercado Pago",
       "income": 2000,
       "outcome": 5000,
-      "type": "Vendas"
+      "type": "Vendas",
+      "transactions": []
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Viagem",
       "income": 4000,
       "outcome": 1000,
-      "type": "Investimento"
+      "type": "Investimento",
+      "transactions": []
     }
   ]
 }

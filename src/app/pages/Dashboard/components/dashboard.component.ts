@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { SharedService } from 'src/app/shared';
+import { SharedService, TransactionTypes } from 'src/app/shared';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +10,11 @@ import { SharedService } from 'src/app/shared';
 export class DashboardComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
-  @Output() transactionsDashboard: any;
+  transactionsDashboard!: TransactionTypes[];
 
   @Input() newTransaction: any;
 
-  ngOnInit(): void {
-    this.transactionsDashboard = this.sharedService.listarCarteiras();
-  }
+  ngOnInit(): void {}
 
   transactionButton() {
     return !this.newTransaction;

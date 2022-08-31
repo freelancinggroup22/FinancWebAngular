@@ -1,4 +1,4 @@
-<app-menu *ngIf="isAuthenticate"></app-menu>
-<div class="p-d-flex p-flex-column" style="margin-top: 20px">
-  <div class="p-mb-4"><router-outlet></router-outlet></div>
+<div class="p-d-flex p-flex-column">
+  <app-menu *ngIf="isAuthenticate"></app-menu>
+  <div class="p-mb-4" style="margin-top: 20px"><router-outlet></router-outlet></div>
 </div>

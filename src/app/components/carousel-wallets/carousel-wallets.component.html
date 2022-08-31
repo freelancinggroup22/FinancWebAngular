@@ -4,20 +4,22 @@
       <div class="p-d-flex p-flex-column">
         <div class="p-d-flex p-jc-center">
           <div class="card">
-            <h2 class="p-mb-1">{{ wallets.name }}</h2>
+            <h1 class="p-mb-1">{{ wallets.name }}</h1>
             <div class="graphic-bar">
               <div class="income-bar" style="width: {{ bars[wallets.id - 1].bar1 }}%"></div>
               <div class="outcome-bar" style="width: {{ bars[wallets.id - 1].bar2 }}%  "></div>
             </div>
             <div class="p-d-flex p-jc-between">
               <div class="p-d-flex p-flex-column p-ai-start">
-                <span class="income">{{ bars[wallets.id - 1].bar1 }}%</span>
-                <h4 class="income">{{ formatMoeda(wallets.income, 'BRL') }}</h4>
+                <span class="income">{{ bars[wallets.id - 1].bar1 }} %</span>
+                <h4 class="income">{{ functionalities.formatCurrency(wallets.income) }}</h4>
               </div>
 
               <div class="p-d-flex p-flex-column p-ai-end">
-                <span class="outcome">{{ bars[wallets.id - 1].bar2 }}%</span>
-                <h4 class="outcome">{{ formatMoeda(wallets.outcome, 'BRL') }}</h4>
+                <span class="outcome">{{ bars[wallets.id - 1].bar2 }} %</span>
+                <h4 class="outcome">
+                  {{ functionalities.formatCurrency(wallets.outcome) }}
+                </h4>
               </div>
             </div>
           </div>

@@ -1,11 +1,19 @@
 .card {
-  background-color: #08aeea;
-  background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-image: linear-gradient(94.3deg, rgba(26, 33, 64, 1) 10.9%, rgba(81, 84, 115, 1) 87.1%);
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(230, 230, 230, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   border-radius: 20px;
-  width: 360px;
-  height: 180px;
+  width: 400px;
+  height: 220px;
   padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .graphic-bar {

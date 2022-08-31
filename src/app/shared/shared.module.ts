@@ -27,6 +27,7 @@ import {
   CreateTransactionComponent,
   MenuComponent,
   TransactionsComponent,
+  CardTransactionComponent,
 } from 'src/app/components';
 
 @NgModule({
@@ -38,6 +39,7 @@ import {
     TransactionsComponent,
     ButtonComponent,
     CarouselWalletsComponent,
+    CardTransactionComponent,
   ],
   imports: [
     CommonModule,
@@ -91,6 +93,7 @@ import {
     TransactionsComponent,
     ButtonComponent,
     CarouselWalletsComponent,
+    CardTransactionComponent,
   ],
 })
 export class SharedModule {}

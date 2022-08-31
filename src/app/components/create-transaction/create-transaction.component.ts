@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 
-import { TransactionTypes } from 'src/app/shared';
+// import { TransactionTypes } from 'src/app/shared';
 
 type statusSelectedTypes = {
   status: 'Pago' | 'Pendente' | 'Planejado';
@@ -19,7 +19,7 @@ export class CreateTransactionComponent implements OnInit {
   text: string | undefined;
   results: string[] = [];
   statusSelected!: statusSelectedTypes;
-  stateStatusts: TransactionTypes | undefined;
+  // stateStatusts: TransactionTypes | undefined;
 
   newTransaction!: FormGroup;
 
@@ -33,7 +33,7 @@ export class CreateTransactionComponent implements OnInit {
       description: new FormControl(),
       installments: new FormControl(),
     });
-    this.stateStatusts = { status: 'Pago' };
+    // this.stateStatusts = { status: 'Pago' };
     this.primengConfig.ripple = true;
   }
 

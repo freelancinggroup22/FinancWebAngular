@@ -1,3 +1,11 @@
 export interface TransactionTypes {
-  status: 'Pendente' | 'Planejado' | 'Pago';
+  category?: string;
+  date?: string;
+  description?: string;
+  flow?: string;
+  iconCategory?: string;
+  installments?: [];
+  name?: string;
+  status?: 'Pendente' | 'Planejado' | 'Pago';
+  value?: number;
 }

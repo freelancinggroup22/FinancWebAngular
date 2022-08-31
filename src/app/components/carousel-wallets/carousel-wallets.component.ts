@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { WalletsTypes, SharedService } from 'src/app/shared';
 
-import { Functionalities } from './functionalities';
+import { Functionalities } from 'src/app/functions';
 
 interface BarsTypes {
   bar1: number;
@@ -33,16 +33,12 @@ export class CarouselWalletsComponent implements OnInit {
         this.wallets.map((element) => {
           const { income, outcome } = element;
           const { _income, _outcome } = this.functionalities.calculatePercentage(
-            Number(income.toFixed(0)),
-            Number(outcome.toFixed(0)),
+            Number(income?.toFixed(0)),
+            Number(outcome?.toFixed(0)),
           );
 
           this.bars.push({ bar1: _income, bar2: _outcome });
         }),
       );
-  }
-
-  formatMoeda(value: number, currency: 'BRL' | 'USD') {
-    return this.functionalities.formatCurrency(value, currency);
   }
 }

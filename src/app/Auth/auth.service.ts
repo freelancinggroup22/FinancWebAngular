@@ -30,8 +30,6 @@ export class AuthService {
 
   userRegister(user: UserTypes) {
     if (user.email != '' && user.email != null) {
-      console.log('Debugger in AuthService:', user);
-
       this.router.navigate(['login']);
     }
   }
