@@ -12,17 +12,17 @@
           <div class="card">
             <h1 class="p-mb-1">{{ wallets.name }}</h1>
             <div class="graphic-bar">
-              <div class="income-bar" style="width: {{ bars[wallets.id].bar1 }}%"></div>
-              <div class="outcome-bar" style="width: {{ bars[wallets.id].bar2 }}%  "></div>
+              <div class="income-bar" style="width: {{ bars[wallets.id].barIncome }}%"></div>
+              <div class="outcome-bar" style="width: {{ bars[wallets.id].barOutcome }}%  "></div>
             </div>
             <div class="p-d-flex p-jc-between">
               <div class="p-d-flex p-flex-column p-ai-start">
-                <span class="income">{{ bars[wallets.id].bar1 }} %</span>
+                <span class="income">{{ bars[wallets.id].barIncome }} %</span>
                 <h4 class="income">{{ functionalities.formatCurrency(wallets.income) }}</h4>
               </div>
 
               <div class="p-d-flex p-flex-column p-ai-end">
-                <span class="outcome">{{ bars[wallets.id].bar2 }} %</span>
+                <span class="outcome">{{ bars[wallets.id].barOutcome }} %</span>
                 <h4 class="outcome">
                   {{ functionalities.formatCurrency(wallets.outcome) }}
                 </h4>

@@ -5,8 +5,8 @@ import { WalletsTypes, SharedService } from 'src/app/shared';
 import { Functionalities } from 'src/app/functions';
 
 interface BarsTypes {
-  bar1: number;
-  bar2: number;
+  barIncome: number;
+  barOutcome: number;
 }
 
 @Component({
@@ -29,20 +29,21 @@ export class CarouselWalletsComponent implements OnInit {
         this.wallets = wallets;
       })
       .then(() =>
-        this.wallets.map((element) => {
-          const { income, outcome } = element;
+        this.wallets.map((wallet) => {
+          const { income, outcome } = wallet;
           const { _income, _outcome } = this.functionalities.calculatePercentage(
             Number(income),
             Number(outcome),
           );
 
-          this.emmitIdWallet();
-          this.bars.push({ bar1: _income, bar2: _outcome });
+          this.bars.push({ barIncome: _income, barOutcome: _outcome });
+
+          if (Number(wallet.id) === 0) this.emmitIdWallet(0);
         }),
       );
   }
 
-  emmitIdWallet(id = 0) {
+  emmitIdWallet(id: number) {
     this.sharedService.getIdWallet(id);
   }
 }

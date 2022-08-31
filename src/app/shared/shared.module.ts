@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MessageService } from 'primeng/api';
+
 // Ng Components
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -16,6 +18,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { SpeedDialModule } from 'primeng/speeddial';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 
@@ -23,11 +26,12 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import {
   ButtonComponent,
   CalendarComponent,
+  CardTransactionComponent,
   CarouselWalletsComponent,
   CreateTransactionComponent,
   MenuComponent,
+  SpeedDialButtonComponent,
   TransactionsComponent,
-  CardTransactionComponent,
 } from 'src/app/components';
 
 @NgModule({
@@ -40,6 +44,7 @@ import {
     ButtonComponent,
     CarouselWalletsComponent,
     CardTransactionComponent,
+    SpeedDialButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -64,6 +69,7 @@ import {
     DropdownModule,
     MenubarModule,
     ProgressBarModule,
+    SpeedDialModule,
   ],
   exports: [
     // Forms
@@ -85,6 +91,7 @@ import {
     DropdownModule,
     MenubarModule,
     ProgressBarModule,
+    SpeedDialModule,
 
     // Components
     MenuComponent,
@@ -94,6 +101,8 @@ import {
     ButtonComponent,
     CarouselWalletsComponent,
     CardTransactionComponent,
+    SpeedDialButtonComponent,
   ],
+  providers: [MessageService],
 })
 export class SharedModule {}

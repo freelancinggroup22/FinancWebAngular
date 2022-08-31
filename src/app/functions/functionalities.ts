@@ -6,15 +6,15 @@ const CurrencyLangs: Record<CurrencyTypes, string> = {
 };
 
 export class Functionalities {
-  progressBars = (valor1: number, valor2: number) => {
-    const sub = valor1 - valor2;
-    const sob = valor1 - sub;
+  // progressBars = (valor1: number, valor2: number) => {
+  //   const sub = valor1 - valor2;
+  //   const sob = valor1 - sub;
 
-    const bar1 = Number(((sub * 100) / valor1).toFixed(0));
-    const bar2 = Number(((sob * 100) / valor1).toFixed(0));
+  //   const bar1 = Number(((sub * 100) / valor1).toFixed(0));
+  //   const bar2 = Number(((sob * 100) / valor1).toFixed(0));
 
-    return { bar1, bar2 };
-  };
+  //   return { bar1, bar2 };
+  // };
 
   formatCurrency(value = 0, currency: CurrencyTypes = 'BRL'): string {
     const price = new Intl.NumberFormat(CurrencyLangs[currency], {

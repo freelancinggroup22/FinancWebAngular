@@ -15,15 +15,25 @@ import {
 
 const routes: Routes = [
   // Pages
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'help', component: HelpComponent, canActivate: [AuthGuard] },
-  { path: 'investment', component: InvestmentComponent, canActivate: [AuthGuard] },
-  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-  { path: 'wallets', component: WalletsComponent, canActivate: [AuthGuard] },
+
+  // Produção
+  // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  // { path: 'help', component: HelpComponent, canActivate: [AuthGuard] },
+  // { path: 'investment', component: InvestmentComponent, canActivate: [AuthGuard] },
+  // { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  // { path: 'wallets', component: WalletsComponent, canActivate: [AuthGuard] },
+
+  // Desenvolvimento
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'help', component: HelpComponent },
+  { path: 'investment', component: InvestmentComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'wallets', component: WalletsComponent },
 
   // Auth
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+
   // Home
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];

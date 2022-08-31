@@ -16,7 +16,7 @@
           "flow": "income",
           "description": "combo",
           "installments": [1],
-          "iconCategory": "pi-wallet"
+          "iconCategory": "pi-dollar"
         }
       ]
     },
@@ -36,7 +36,7 @@
           "flow": "income",
           "description": "combo",
           "installments": [1],
-          "iconCategory": "pi-wallet"
+          "iconCategory": "pi-dollar"
         },
         {
           "name": "Adega",
@@ -89,7 +89,7 @@
           "flow": "income",
           "description": "combo",
           "installments": [1],
-          "iconCategory": "pi-wallet"
+          "iconCategory": "pi-dollar"
         },
         {
           "name": "Doces",
@@ -142,7 +142,7 @@
           "flow": "income",
           "description": "combo",
           "installments": [1],
-          "iconCategory": "pi-wallet"
+          "iconCategory": "pi-dollar"
         },
         {
           "name": "Adega",
@@ -195,7 +195,7 @@
           "flow": "income",
           "description": "combo",
           "installments": [1],
-          "iconCategory": "pi-wallet"
+          "iconCategory": "pi-dollar"
         }
       ]
     },
@@ -215,7 +215,7 @@
           "flow": "income",
           "description": "combo",
           "installments": [1],
-          "iconCategory": "pi-wallet"
+          "iconCategory": "pi-dollar"
         }
       ]
     }

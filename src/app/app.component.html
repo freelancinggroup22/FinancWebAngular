@@ -1,4 +1,13 @@
 <div class="p-d-flex p-flex-column">
-  <app-menu *ngIf="isAuthenticate"></app-menu>
-  <div class="p-mb-4" style="margin-top: 20px"><router-outlet></router-outlet></div>
+  <!-- Produção -->
+  <!-- <app-menu *ngIf="isAuthenticate"></app-menu>
+  <app-speed-dial-button *ngIf="isAuthenticate"></app-speed-dial-button> -->
+
+  <!-- Desenvolvimento -->
+  <app-menu></app-menu>
+  <app-speed-dial-button></app-speed-dial-button>
+
+  <div style="margin-top: 20px">
+    <router-outlet></router-outlet>
+  </div>
 </div>
