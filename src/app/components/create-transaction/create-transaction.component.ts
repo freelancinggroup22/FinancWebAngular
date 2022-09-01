@@ -1,41 +1,63 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 
-// import { TransactionTypes } from 'src/app/shared';
+import { SharedService, TransactionTypes, WalletsTypes } from 'src/app/shared';
 
-type statusSelectedTypes = {
+interface StatusTypes {
   status: 'Pago' | 'Pendente' | 'Planejado';
-};
+}
 
 @Component({
   selector: 'app-create-transaction',
   templateUrl: './create-transaction.component.html',
-  styleUrls: ['./create-transaction.component.sass'],
+  styleUrls: ['./create-transaction.component.scss'],
 })
 export class CreateTransactionComponent implements OnInit {
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private formBuilder: FormBuilder,
+    private sharedService: SharedService,
+  ) {}
 
   text: string | undefined;
   results: string[] = [];
-  statusSelected!: statusSelectedTypes;
-  // stateStatusts: TransactionTypes | undefined;
+
+  statusArray!: StatusTypes[];
+  statusSelected!: StatusTypes;
+
+  walletsArray!: WalletsTypes[];
+  walletSelected!: WalletsTypes;
 
   newTransaction!: FormGroup;
 
   ngOnInit(): void {
-    this.newTransaction = new FormGroup({
-      name: new FormControl(''),
-      date: new FormControl(''),
-      value: new FormControl(0.0),
-      status: new FormControl(),
-      category: new FormControl(),
-      description: new FormControl(),
-      installments: new FormControl(),
+    this.newTransaction = this.formBuilder.group<TransactionTypes>({
+      name: '',
+      date: '',
+      flow: '',
+      value: 0,
+      status: 'Pendente',
+      category: '',
+      description: '',
+      type: '',
+      installments: [],
+      iconCategory: '',
+      wallet: '',
     });
-    // this.stateStatusts = { status: 'Pago' };
+
+    this.statusArray = [{ status: 'Pago' }, { status: 'Planejado' }, { status: 'Pendente' }];
+
+    this.sharedService.getWallets().then((wallets) => {
+      this.walletsArray = wallets.filter((wallet) => wallet.name !== 'Total');
+    });
+
     this.primengConfig.ripple = true;
   }
 
-  search(event: any) {}
+  handleCreateTransaction() {
+    console.log('Debugger in CreateTransactionComponent:', this.newTransaction.value);
+  }
+
+  // search(event: any) {}
 }

@@ -1,30 +1,116 @@
-<form [formGroup]="newTransaction">
-  <div class="p-fluid p-formgrid p-grid">
-    <div class="p-field p-col">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
-        <input type="text" pInputText placeholder="Transação" formControlName="name" />
+<div class="content">
+  <form [formGroup]="newTransaction">
+    <div class="p-fluid p-formgrid p-grid p-flex-column">
+      <div class="p-field p-col">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
+          <input type="text" pInputText placeholder="Transação" formControlName="name" />
+        </div>
       </div>
-    </div>
 
-    <div class="p-field p-col">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
-        <input type="text" pInputText placeholder="Valor" formControlName="value" />
+      <div class="p-field p-col">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+          <p-inputNumber
+            [showButtons]="true"
+            inputId="stacked"
+            mode="currency"
+            currency="BRL"
+            formControlName="value"
+          >
+          </p-inputNumber>
+        </div>
       </div>
-    </div>
-    <div class="p-field p-col">
-      <div class="p-inputgroup">
-        <p-dropdown (options)="(statusSelected)" optionLabel="status"></p-dropdown>
-      </div>
-    </div>
-    <div class="p-field p-col">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
-        <input type="text" pInputText placeholder="Categoria" formControlName="category" />
-      </div>
-    </div>
-  </div>
 
-  <button pButton>Ok</button>
-</form>
+      <div class="p-field p-col">
+        <p-calendar
+          [showIcon]="true"
+          inputId="icon"
+          formControlName="date"
+          dateFormat="dd/mm/yy"
+          [showButtonBar]="true"
+          placeholder="Data"
+          yearRange="2000:2030"
+        >
+        </p-calendar>
+      </div>
+
+      <!-- dropdown Carteira-->
+
+      <div class="p-field p-col">
+        <p-dropdown
+          [options]="walletsArray"
+          [(ngModel)]="walletSelected"
+          formControlName="wallet"
+          optionLabel="name"
+          [filter]="true"
+          filterBy="name"
+          [showClear]="true"
+          placeholder="Carteira"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="walletSelected">
+              <div>{{ walletSelected.name }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-wallet pTemplate="item">
+            <div class="country-item">
+              <div>{{ wallet.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <!-- dropdown Carteira-->
+
+      <!-- dropdown Status-->
+
+      <div class="p-field p-col">
+        <p-dropdown
+          [options]="statusArray"
+          [(ngModel)]="statusSelected"
+          optionLabel="status"
+          formControlName="status"
+          [filter]="true"
+          filterBy="status"
+          [showClear]="true"
+          placeholder="Status"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="statusSelected">
+              <div>{{ statusSelected.status }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-state pTemplate="item">
+            <div class="country-item">
+              <div>{{ state.status }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <!-- dropdown Status-->
+
+      <div class="p-field p-col">
+        <p-inputNumber
+          mode="decimal"
+          [showButtons]="true"
+          inputId="minmax-buttons"
+          [min]="0"
+          [max]="100"
+          placeholder="Parcelas"
+          formControlName="installments"
+        >
+        </p-inputNumber>
+      </div>
+
+      <div class="p-field p-col">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <input type="text" pInputText placeholder="Categoria" formControlName="category" />
+        </div>
+      </div>
+    </div>
+  </form>
+  <button pButton (click)="handleCreateTransaction()">Ok</button>
+</div>

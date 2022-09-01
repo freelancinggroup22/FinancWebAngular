@@ -25,20 +25,18 @@
             <div class="p-col-12">
               <app-transactions [transactions]="transactionsDashboard"></app-transactions>
             </div>
-            <!-- <div class="p-col-12 p-d-flex p-jc-end">
-              <app-button
-                title="Nova Transação"
-                (buttonEmit)="handleButtonEmit($event)"
-                #AppButton
-              ></app-button>
-            </div>
-            <div class="p-col-12" *ngIf="AppButton.buttonState">
-              <p-panel header="Nova Transação">
-                <app-create-transaction></app-create-transaction>
-              </p-panel>
-            </div> -->
           </div>
         </p-panel>
+        <p-dialog header="Nova Transação" [(visible)]="display">
+          <app-create-transaction></app-create-transaction>
+        </p-dialog>
+        <button
+          type="button"
+          pButton
+          (click)="showDialog()"
+          icon="pi pi-info-circle"
+          label="Show"
+        ></button>
       </div>
     </div>
   </div>

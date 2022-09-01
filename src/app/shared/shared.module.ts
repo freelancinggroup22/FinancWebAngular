@@ -12,8 +12,11 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
+import { ChipsModule } from 'primeng/chips';
+import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
@@ -70,6 +73,9 @@ import {
     MenubarModule,
     ProgressBarModule,
     SpeedDialModule,
+    DialogModule,
+    InputNumberModule,
+    ChipsModule,
   ],
   exports: [
     // Forms
@@ -92,6 +98,9 @@ import {
     MenubarModule,
     ProgressBarModule,
     SpeedDialModule,
+    DialogModule,
+    InputNumberModule,
+    ChipsModule,
 
     // Components
     MenuComponent,

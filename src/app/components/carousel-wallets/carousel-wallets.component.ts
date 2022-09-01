@@ -20,7 +20,12 @@ export class CarouselWalletsComponent implements OnInit {
   wallets!: WalletsTypes[];
   bars: BarsTypes[] = [];
 
+  incomeFormatted!: string;
+  outcomeFormatted!: string;
+
   constructor(private sharedService: SharedService) {}
+
+  // TODO: trocar o map para forEatch
 
   ngOnInit(): void {
     this.sharedService
