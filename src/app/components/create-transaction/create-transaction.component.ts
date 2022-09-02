@@ -8,20 +8,26 @@ interface StatusTypes {
   status: 'Pago' | 'Pendente' | 'Planejado';
 }
 
+interface CategoryTypes {
+  category: string;
+}
+
+interface FlowTypes {
+  flow: 'Income' | 'Outcome';
+}
+
+interface TypeTypes {
+  type: 'Debito' | 'Credito' | 'Dinherio' | 'Investimento';
+}
+
 @Component({
   selector: 'app-create-transaction',
   templateUrl: './create-transaction.component.html',
   styleUrls: ['./create-transaction.component.scss'],
 })
 export class CreateTransactionComponent implements OnInit {
-  constructor(
-    private primengConfig: PrimeNGConfig,
-    private formBuilder: FormBuilder,
-    private sharedService: SharedService,
-  ) {}
-
-  text: string | undefined;
-  results: string[] = [];
+  typeArray!: TypeTypes[];
+  typeSelected!: TypeTypes;
 
   statusArray!: StatusTypes[];
   statusSelected!: StatusTypes;
@@ -29,7 +35,21 @@ export class CreateTransactionComponent implements OnInit {
   walletsArray!: WalletsTypes[];
   walletSelected!: WalletsTypes;
 
+  categoryArray!: CategoryTypes[];
+  categorySelected!: CategoryTypes;
+
   newTransaction!: FormGroup;
+
+  // flowIncome = <FlowTypes>this.flow('Income');
+  // flowOutcome = this.flow('Outcome');
+
+  flowSelected!: string;
+
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private formBuilder: FormBuilder,
+    private sharedService: SharedService,
+  ) {}
 
   ngOnInit(): void {
     this.newTransaction = this.formBuilder.group<TransactionTypes>({
@@ -46,7 +66,20 @@ export class CreateTransactionComponent implements OnInit {
       wallet: '',
     });
 
+    this.typeArray = [
+      { type: 'Debito' },
+      { type: 'Credito' },
+      { type: 'Dinherio' },
+      { type: 'Investimento' },
+    ];
     this.statusArray = [{ status: 'Pago' }, { status: 'Planejado' }, { status: 'Pendente' }];
+    this.categoryArray = [
+      { category: 'Compras' },
+      { category: 'Alimentação' },
+      { category: 'Salario' },
+      { category: 'Transporte' },
+      { category: 'Viagem' },
+    ];
 
     this.sharedService.getWallets().then((wallets) => {
       this.walletsArray = wallets.filter((wallet) => wallet.name !== 'Total');
@@ -55,9 +88,11 @@ export class CreateTransactionComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
 
+  flow(flow: string) {
+    return (this.flowSelected = flow);
+  }
+
   handleCreateTransaction() {
     console.log('Debugger in CreateTransactionComponent:', this.newTransaction.value);
   }
-
-  // search(event: any) {}
 }

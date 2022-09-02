@@ -27,7 +27,7 @@
             </div>
           </div>
         </p-panel>
-        <p-dialog header="Nova Transação" [(visible)]="display">
+        <p-dialog header="Nova Transação" [(visible)]="display" [style]="{ height: '90vh' }">
           <app-create-transaction></app-create-transaction>
         </p-dialog>
         <button
@@ -40,4 +40,15 @@
       </div>
     </div>
   </div>
+
+  <app-speed-dial-button></app-speed-dial-button>
+
+  <!-- <div style="height: 350px; position: relative" class="speeddial-tooltip-demo">
+    <p-speedDial
+      [model]="leftTooltipItems"
+      className="speeddial-right"
+      direction="up"
+    ></p-speedDial>
+    <p-speedDial [model]="tooltipItems" className="speeddial-left" direction="up"></p-speedDial>
+  </div> -->
 </div>

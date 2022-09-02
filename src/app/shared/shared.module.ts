@@ -24,6 +24,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 // Components
 import {
@@ -76,11 +77,22 @@ import {
     DialogModule,
     InputNumberModule,
     ChipsModule,
+    InputTextareaModule,
   ],
   exports: [
     // Forms
     FormsModule,
     ReactiveFormsModule,
+
+    // Components
+    MenuComponent,
+    CalendarComponent,
+    CreateTransactionComponent,
+    TransactionsComponent,
+    ButtonComponent,
+    CarouselWalletsComponent,
+    CardTransactionComponent,
+    SpeedDialButtonComponent,
 
     // NG Modules
     AccordionModule,
@@ -101,16 +113,7 @@ import {
     DialogModule,
     InputNumberModule,
     ChipsModule,
-
-    // Components
-    MenuComponent,
-    CalendarComponent,
-    CreateTransactionComponent,
-    TransactionsComponent,
-    ButtonComponent,
-    CarouselWalletsComponent,
-    CardTransactionComponent,
-    SpeedDialButtonComponent,
+    InputTextareaModule,
   ],
   providers: [MessageService],
 })

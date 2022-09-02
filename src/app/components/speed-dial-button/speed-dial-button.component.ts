@@ -17,11 +17,13 @@ export class SpeedDialButtonComponent implements OnInit {
       {
         tooltip: 'Nova Carteira',
         icon: 'pi pi-wallet',
+        tooltipPosition: 'left',
         command: () => {},
       },
       {
         tooltip: 'Nova Transação',
         icon: 'pi pi-money-bill',
+        tooltipPosition: 'left',
         command: () => {},
       },
     ];

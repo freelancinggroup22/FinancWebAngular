@@ -1,14 +1,17 @@
 <div class="content">
   <form [formGroup]="newTransaction">
-    <div class="p-fluid p-formgrid p-grid p-flex-column">
-      <div class="p-field p-col">
+    <div class="p-fluid p-formgrid p-d-flex p-flex-column p-jc-center">
+      <!-- Transação -->
+      <div class="p-col">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
           <input type="text" pInputText placeholder="Transação" formControlName="name" />
         </div>
       </div>
+      <!-- Transação -->
 
-      <div class="p-field p-col">
+      <!-- Valor -->
+      <div class="p-col">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
           <p-inputNumber
@@ -21,8 +24,10 @@
           </p-inputNumber>
         </div>
       </div>
+      <!-- Valor -->
 
-      <div class="p-field p-col">
+      <!-- Data -->
+      <div class="p-col">
         <p-calendar
           [showIcon]="true"
           inputId="icon"
@@ -34,10 +39,10 @@
         >
         </p-calendar>
       </div>
+      <!-- Data -->
 
       <!-- dropdown Carteira-->
-
-      <div class="p-field p-col">
+      <div class="p-col">
         <p-dropdown
           [options]="walletsArray"
           [(ngModel)]="walletSelected"
@@ -60,12 +65,10 @@
           </ng-template>
         </p-dropdown>
       </div>
-
       <!-- dropdown Carteira-->
 
       <!-- dropdown Status-->
-
-      <div class="p-field p-col">
+      <div class="p-col">
         <p-dropdown
           [options]="statusArray"
           [(ngModel)]="statusSelected"
@@ -88,10 +91,10 @@
           </ng-template>
         </p-dropdown>
       </div>
-
       <!-- dropdown Status-->
 
-      <div class="p-field p-col">
+      <!-- Parcelas -->
+      <div class="p-col">
         <p-inputNumber
           mode="decimal"
           [showButtons]="true"
@@ -103,14 +106,154 @@
         >
         </p-inputNumber>
       </div>
+      <!-- Parcelas -->
 
-      <div class="p-field p-col">
+      <!-- Categoria -->
+      <div class="p-col">
+        <p-dropdown
+          [options]="categoryArray"
+          [(ngModel)]="categorySelected"
+          optionLabel="category"
+          formControlName="category"
+          [filter]="true"
+          filterBy="category"
+          [showClear]="true"
+          placeholder="Escolher categoria"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="categorySelected">
+              <div>{{ categorySelected.category }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-categorys pTemplate="item">
+            <div class="country-item">
+              <div>{{ categorys.category }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <div class="p-col">
         <div class="p-inputgroup">
-          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <!-- <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span> -->
           <input type="text" pInputText placeholder="Categoria" formControlName="category" />
+
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-check"
+            styleClass="p-button-success"
+          ></button>
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-times"
+            styleClass="p-button-danger"
+          ></button>
         </div>
       </div>
+      <!-- Categoria -->
+
+      <!-- Tipo -->
+      <div class="p-col">
+        <p-dropdown
+          [options]="typeArray"
+          [(ngModel)]="typeSelected"
+          optionLabel="type"
+          formControlName="type"
+          [filter]="true"
+          filterBy="type"
+          [showClear]="true"
+          placeholder="Escolher tipo"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="typeSelected">
+              <div>{{ typeSelected.type }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-types pTemplate="item">
+            <div class="country-item">
+              <div>{{ types.type }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <!-- Tipo -->
+
+      <!-- Descrição -->
+      <div class="p-col">
+        <input type="text" pInputText placeholder="Descrição" formControlName="description" />
+      </div>
+      <!-- Descrição -->
+
+      <input [value]="flowSelected" pInputText formControlName="flow" />
+      <!-- Flow -->
+      <div class="p-col p-grid">
+        <div class="p-col-6">
+          <button
+            pButton
+            pRipple
+            class="p-button-rounded p-button-secondary"
+            label="Outcome"
+            type="button"
+            icon="pi pi-arrow-circle-down"
+            iconPos="right"
+            (click)="flow('Outcome')"
+          ></button>
+        </div>
+
+        <div class="p-col-6">
+          <button
+            pButton
+            pRipple
+            class="p-button-rounded p-button-success"
+            label="Income"
+            type="button"
+            icon="pi pi-arrow-circle-up"
+            iconPos="right"
+            (click)="flow('Income')"
+          ></button>
+        </div>
+      </div>
+      <!-- Flow -->
+
+      <!-- dropdown Status-->
+      <div class="p-col">
+        <p-dropdown
+          [options]="statusArray"
+          [(ngModel)]="statusSelected"
+          optionLabel="status"
+          formControlName="status"
+          [filter]="true"
+          filterBy="status"
+          [showClear]="true"
+          placeholder="Status"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="statusSelected">
+              <div>{{ statusSelected.status }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-state pTemplate="item">
+            <div class="country-item">
+              <div>{{ state.status }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <!-- dropdown Status-->
     </div>
   </form>
-  <button pButton (click)="handleCreateTransaction()">Ok</button>
+</div>
+<div class="p-d-flex p-p-3 card">
+  <button pButton pRipple type="button" icon="pi pi-trash" class="p-mr-2 p-button-danger"></button>
+  <button pButton pRipple type="button" icon="pi pi-copy" class="p-mr-2"></button>
+  <button
+    pButton
+    class="p-ml-auto p-button-success"
+    (click)="handleCreateTransaction()"
+    label="Ok"
+  ></button>
 </div>
