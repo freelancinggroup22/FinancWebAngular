@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { MenuItem, MessageService } from 'primeng/api';
 
@@ -9,6 +9,11 @@ import { MenuItem, MessageService } from 'primeng/api';
 })
 export class SpeedDialButtonComponent implements OnInit {
   tooltipItems!: MenuItem[];
+
+  display = false;
+  displayInfos = true;
+  displayTransaction = false;
+  columDashboardMain = 'p-col-8';
 
   constructor(private messageService: MessageService) {}
 
@@ -24,8 +29,15 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltip: 'Nova Transação',
         icon: 'pi pi-money-bill',
         tooltipPosition: 'left',
-        command: () => {},
+        command: () => {
+          this.showTransaction();
+        },
       },
     ];
+  }
+
+  showTransaction() {
+    this.displayInfos = !this.displayInfos;
+    this.displayTransaction = !this.displayTransaction;
   }
 }

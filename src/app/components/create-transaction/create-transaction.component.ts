@@ -20,6 +20,11 @@ interface TypeTypes {
   type: 'Debito' | 'Credito' | 'Dinherio' | 'Investimento';
 }
 
+interface IconsType {
+  name: string;
+  icon: string;
+}
+
 @Component({
   selector: 'app-create-transaction',
   templateUrl: './create-transaction.component.html',
@@ -38,9 +43,12 @@ export class CreateTransactionComponent implements OnInit {
   categoryArray!: CategoryTypes[];
   categorySelected!: CategoryTypes;
 
+  iconArray!: IconsType[];
+  iconSelected!: IconsType;
+
   newTransaction!: FormGroup;
 
-  // flowIncome = <FlowTypes>this.flow('Income');
+  // flowIncome = this.flow('Income');
   // flowOutcome = this.flow('Outcome');
 
   flowSelected!: string;
@@ -81,6 +89,13 @@ export class CreateTransactionComponent implements OnInit {
       { category: 'Viagem' },
     ];
 
+    this.iconArray = [
+      { name: 'Money', icon: 'pi-money-bill' },
+      { name: 'Mobile', icon: 'pi-mobile' },
+      { name: 'Work', icon: 'pi-briefcase' },
+      { name: 'Camera', icon: 'pi-camera' },
+    ];
+
     this.sharedService.getWallets().then((wallets) => {
       this.walletsArray = wallets.filter((wallet) => wallet.name !== 'Total');
     });
@@ -89,7 +104,7 @@ export class CreateTransactionComponent implements OnInit {
   }
 
   flow(flow: string) {
-    return (this.flowSelected = flow);
+    this.newTransaction.patchValue({ flow });
   }
 
   handleCreateTransaction() {

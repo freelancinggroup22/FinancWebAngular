@@ -1,8 +1,8 @@
 <div class="content">
   <form [formGroup]="newTransaction">
-    <div class="p-fluid p-formgrid p-d-flex p-flex-column p-jc-center">
+    <div class="p-fluid p-formgrid p-grid p-d-flex p-jc-center">
       <!-- Transação -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
           <input type="text" pInputText placeholder="Transação" formControlName="name" />
@@ -11,7 +11,7 @@
       <!-- Transação -->
 
       <!-- Valor -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
           <p-inputNumber
@@ -27,7 +27,7 @@
       <!-- Valor -->
 
       <!-- Data -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <p-calendar
           [showIcon]="true"
           inputId="icon"
@@ -42,7 +42,7 @@
       <!-- Data -->
 
       <!-- dropdown Carteira-->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <p-dropdown
           [options]="walletsArray"
           [(ngModel)]="walletSelected"
@@ -68,7 +68,7 @@
       <!-- dropdown Carteira-->
 
       <!-- dropdown Status-->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <p-dropdown
           [options]="statusArray"
           [(ngModel)]="statusSelected"
@@ -94,7 +94,7 @@
       <!-- dropdown Status-->
 
       <!-- Parcelas -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <p-inputNumber
           mode="decimal"
           [showButtons]="true"
@@ -109,7 +109,7 @@
       <!-- Parcelas -->
 
       <!-- Categoria -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <p-dropdown
           [options]="categoryArray"
           [(ngModel)]="categorySelected"
@@ -133,7 +133,7 @@
         </p-dropdown>
       </div>
 
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <div class="p-inputgroup">
           <!-- <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span> -->
           <input type="text" pInputText placeholder="Categoria" formControlName="category" />
@@ -157,7 +157,7 @@
       <!-- Categoria -->
 
       <!-- Tipo -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <p-dropdown
           [options]="typeArray"
           [(ngModel)]="typeSelected"
@@ -183,71 +183,66 @@
       <!-- Tipo -->
 
       <!-- Descrição -->
-      <div class="p-col">
+      <div class="p-field p-col-6">
         <input type="text" pInputText placeholder="Descrição" formControlName="description" />
       </div>
       <!-- Descrição -->
 
-      <input [value]="flowSelected" pInputText formControlName="flow" />
-      <!-- Flow -->
-      <div class="p-col p-grid">
-        <div class="p-col-6">
-          <button
-            pButton
-            pRipple
-            class="p-button-rounded p-button-secondary"
-            label="Outcome"
-            type="button"
-            icon="pi pi-arrow-circle-down"
-            iconPos="right"
-            (click)="flow('Outcome')"
-          ></button>
-        </div>
-
-        <div class="p-col-6">
-          <button
-            pButton
-            pRipple
-            class="p-button-rounded p-button-success"
-            label="Income"
-            type="button"
-            icon="pi pi-arrow-circle-up"
-            iconPos="right"
-            (click)="flow('Income')"
-          ></button>
-        </div>
-      </div>
-      <!-- Flow -->
-
-      <!-- dropdown Status-->
-      <div class="p-col">
+      <!-- dropdown Icons-->
+      <div class="p-field p-col-6">
         <p-dropdown
-          [options]="statusArray"
-          [(ngModel)]="statusSelected"
-          optionLabel="status"
-          formControlName="status"
+          [options]="iconArray"
+          [(ngModel)]="iconSelected"
+          optionLabel="name"
+          formControlName="iconCategory"
           [filter]="true"
-          filterBy="status"
+          filterBy="name"
           [showClear]="true"
-          placeholder="Status"
+          placeholder="Icone da Categoria"
         >
           <ng-template pTemplate="selectedItem">
-            <div class="country-item country-item-value" *ngIf="statusSelected">
-              <div>{{ statusSelected.status }}</div>
+            <div class="country-item country-item-value" *ngIf="iconSelected">
+              <div>{{ iconSelected.name }}</div>
             </div>
           </ng-template>
-          <ng-template let-state pTemplate="item">
-            <div class="country-item">
-              <div>{{ state.status }}</div>
+          <ng-template let-iconList pTemplate="item">
+            <div class="country-item p-d-flex">
+              <i class="pi {{ iconList.icon }}" style="margin-right: 10px; font-size: 1rem"></i>
+              <div>{{ iconList.name }}</div>
             </div>
           </ng-template>
         </p-dropdown>
       </div>
-      <!-- dropdown Status-->
+      <!-- dropdown Icons-->
+
+      <!-- Flow -->
+      <div class="p-field p-col-6 p-d-flex">
+        <button
+          pButton
+          pRipple
+          class="p-button-rounded p-button-secondary"
+          label="Outcome"
+          type="button"
+          icon="pi pi-arrow-circle-down"
+          iconPos="right"
+          (click)="flow('Outcome')"
+        ></button>
+        <button
+          pButton
+          pRipple
+          class="p-button-rounded p-button-success"
+          label="Income"
+          type="button"
+          icon="pi pi-arrow-circle-up"
+          iconPos="right"
+          (click)="flow('Income')"
+        ></button>
+      </div>
+      <!-- Flow -->
     </div>
   </form>
 </div>
-<div class="p-d-flex p-p-3 card">
+<div class="p-d-flex card">
   <button pButton pRipple type="button" icon="pi pi-trash" class="p-mr-2 p-button-danger"></button>
   <button pButton pRipple type="button" icon="pi pi-copy" class="p-mr-2"></button>
   <button

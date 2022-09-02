@@ -1,5 +1,5 @@
 <div class="p-grid nested-grid">
-  <div class="p-col-4">
+  <div class="p-col-4" *ngIf="DialButton.displayInfos">
     <div class="p-grid">
       <div class="p-col-12">
         <p-panel header="Calendário" class="box box-stretched" [toggleable]="true"
@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <div class="p-col-8">
+  <div class="{{ DialButton.columDashboardMain }}">
     <div class="p-grid">
       <div class="p-col-12">
         <p-panel header="Carteiras" styleClass="dark-panel">
@@ -27,21 +27,22 @@
             </div>
           </div>
         </p-panel>
-        <p-dialog header="Nova Transação" [(visible)]="display" [style]="{ height: '90vh' }">
+        <p-dialog
+          header="Nova Transação"
+          [(visible)]="DialButton.display"
+          [style]="{ height: '62vh' }"
+        >
           <app-create-transaction></app-create-transaction>
         </p-dialog>
-        <button
-          type="button"
-          pButton
-          (click)="showDialog()"
-          icon="pi pi-info-circle"
-          label="Show"
-        ></button>
       </div>
     </div>
   </div>
 
-  <app-speed-dial-button></app-speed-dial-button>
+  <div class="p-col-4" *ngIf="DialButton.displayTransaction">
+    <p-panel header="Transação">
+      <app-create-transaction></app-create-transaction>
+    </p-panel>
+  </div>
 
   <!-- <div style="height: 350px; position: relative" class="speeddial-tooltip-demo">
     <p-speedDial
@@ -51,4 +52,5 @@
     ></p-speedDial>
     <p-speedDial [model]="tooltipItems" className="speeddial-left" direction="up"></p-speedDial>
   </div> -->
+  <app-speed-dial-button #DialButton></app-speed-dial-button>
 </div>

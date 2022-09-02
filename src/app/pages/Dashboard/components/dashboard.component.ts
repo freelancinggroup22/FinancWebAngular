@@ -12,14 +12,13 @@ export class DashboardComponent implements OnInit {
 
   transactionsDashboard!: TransactionTypes[];
 
-  display = false;
-
   @Input() newTransaction: any;
 
   ngOnInit(): void {}
 
   showDialog() {
-    this.display = true;
+    // this.display = true;
+    // this.columDashboardMain = 'p-col-6';
   }
 
   transactionButton() {
