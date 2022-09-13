@@ -33,6 +33,16 @@
 
   <div class="p-col-4" *ngIf="DialButton.displayTransaction">
     <p-panel header="Transação">
+      <ng-template pTemplate="icons">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-times"
+          class="p-button-rounded p-button-danger"
+          (click)="diplayController()"
+        ></button>
+      </ng-template>
       <app-create-transaction></app-create-transaction>
     </p-panel>
   </div>

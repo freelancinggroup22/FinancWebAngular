@@ -11,19 +11,17 @@ export class DashboardComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   transactionsDashboard!: TransactionTypes[];
+  displayTransaction!: boolean;
 
   @Input() newTransaction: any;
 
   ngOnInit(): void {}
-
-  showDialog() {
-    // this.display = true;
-    // this.columDashboardMain = 'p-col-6';
-  }
 
   transactionButton() {
     return !this.newTransaction;
   }
 
   handleButtonEmit(event: any) {}
+
+  diplayController() {}
 }

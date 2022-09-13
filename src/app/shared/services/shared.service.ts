@@ -21,15 +21,6 @@ export class SharedService {
   }
 
   getOneWallet(id = this.valueWallet) {
-    // if (id === 0) {
-    //   return this.http
-    //     .get<any>(this.baseUrl)
-    //     .toPromise()
-    //     .then((res) => <WalletsTypes[]>res.data)
-    //     .then((data) => {
-    //       return data.filter((element) => element.transactions);
-    //     });
-    // } else {
     return this.http
       .get<any>(this.baseUrl)
       .toPromise()

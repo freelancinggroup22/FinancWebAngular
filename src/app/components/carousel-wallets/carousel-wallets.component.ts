@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { WalletsTypes, SharedService } from 'src/app/shared';
 
-import { Functionalities } from 'src/app/functions';
+import { Functionalities } from 'src/app/shared';
 
 interface BarsTypes {
   barIncome: number;
@@ -15,15 +15,13 @@ interface BarsTypes {
   styleUrls: ['./carousel-wallets.component.scss'],
 })
 export class CarouselWalletsComponent implements OnInit {
-  functionalities = new Functionalities();
-
   wallets!: WalletsTypes[];
   bars: BarsTypes[] = [];
 
   incomeFormatted!: string;
   outcomeFormatted!: string;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, public functionalities: Functionalities) {}
 
   // TODO: trocar o map para forEatch
 

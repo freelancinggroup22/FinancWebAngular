@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { SharedService, TransactionTypes } from 'src/app/shared';
-import { Functionalities } from 'src/app/functions';
+import { Functionalities } from 'src/app/shared';
 
 @Component({
   selector: 'app-card-transaction',
@@ -9,13 +9,11 @@ import { Functionalities } from 'src/app/functions';
   styleUrls: ['./card-transaction.component.scss'],
 })
 export class CardTransactionComponent implements OnInit {
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, public functionalities: Functionalities) {}
 
   objeto!: TransactionTypes[];
 
   @Input() idWallet!: number;
-
-  functionalities = new Functionalities();
 
   ngOnInit(): void {
     this.sharedService.idWallets.subscribe((id) => {
