@@ -1,3 +1,4 @@
+import { WalletsTypes } from './wallets.interface';
 export interface TransactionTypes {
   category: string;
   date: string;
@@ -9,5 +10,5 @@ export interface TransactionTypes {
   status: 'Pendente' | 'Planejado' | 'Pago';
   type: string;
   value: number;
-  wallet: string;
+  wallet: WalletsTypes;
 }

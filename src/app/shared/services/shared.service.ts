@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Output, EventEmitter, Input } from '@angular/core';
 
@@ -10,6 +11,7 @@ export class SharedService {
   private baseUrl: string;
 
   @Output() idWallets = new EventEmitter();
+  @Output() idUser = new EventEmitter();
   @Input() valueWallet = 0;
 
   constructor(private http: HttpClient) {
@@ -37,4 +39,12 @@ export class SharedService {
       .then((res) => <WalletsTypes[]>res.data)
       .then((data) => data);
   }
+
+  // getOneWallet(userId = this.idUser, walletId = this.valueWallet): Observable<WalletsTypes> {
+  //   return this.http.get<WalletsTypes>(`${this.baseUrl}/${userId}/${walletId}`);
+  // }
+
+  // getAllWallets(userId = this.idUser): Observable<WalletsTypes[]> {
+  //   return this.http.get<WalletsTypes[]>(`${this.baseUrl}/${userId}`);
+  // }
 }

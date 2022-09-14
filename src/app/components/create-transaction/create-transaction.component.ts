@@ -71,7 +71,12 @@ export class CreateTransactionComponent implements OnInit {
       type: '',
       installments: [],
       iconCategory: '',
-      wallet: '',
+      wallet: {
+        id: undefined,
+        name: '',
+        income: 0,
+        outcome: 0,
+      },
     });
 
     this.typeArray = [
@@ -105,6 +110,14 @@ export class CreateTransactionComponent implements OnInit {
 
   flow(flow: string) {
     this.newTransaction.patchValue({ flow });
+  }
+
+  //TODO: Destruição do componente
+
+  getWalletId(walletId: any) {
+    this.newTransaction.patchValue({ walletId });
+    // this.newTransaction.patchValue({ wallet: { id: walletId } });
+    console.log('Debugger in CreateTransactionComponent:', walletId);
   }
 
   handleCreateTransaction() {
