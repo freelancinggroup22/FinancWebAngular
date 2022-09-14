@@ -28,10 +28,9 @@ export class SharedService {
       .then((data) => {
         return data.filter((element) => Number(element.id) === id);
       });
-    // }
   }
 
-  getWallets() {
+  getAllWallets() {
     return this.http
       .get<any>(this.baseUrl)
       .toPromise()

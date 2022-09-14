@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { SharedService, TransactionTypes } from 'src/app/shared';
-import { Functionalities } from 'src/app/shared';
+import { SharedService, TransactionTypes, Functionalities } from 'src/app/shared';
 
 @Component({
   selector: 'app-card-transaction',

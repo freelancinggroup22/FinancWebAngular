@@ -96,7 +96,7 @@ export class CreateTransactionComponent implements OnInit {
       { name: 'Camera', icon: 'pi-camera' },
     ];
 
-    this.sharedService.getWallets().then((wallets) => {
+    this.sharedService.getAllWallets().then((wallets) => {
       this.walletsArray = wallets.filter((wallet) => wallet.name !== 'Total');
     });
 

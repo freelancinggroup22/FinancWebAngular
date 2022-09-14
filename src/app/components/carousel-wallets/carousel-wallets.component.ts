@@ -27,7 +27,7 @@ export class CarouselWalletsComponent implements OnInit {
 
   ngOnInit(): void {
     this.sharedService
-      .getWallets()
+      .getAllWallets()
       .then((wallets) => {
         this.wallets = wallets;
       })
