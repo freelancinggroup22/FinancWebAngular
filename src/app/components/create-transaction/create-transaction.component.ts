@@ -10,19 +10,11 @@ interface StatusTypes {
 
 interface CategoryTypes {
   category: string;
-}
-
-interface FlowTypes {
-  flow: 'Income' | 'Outcome';
+  icon: string;
 }
 
 interface TypeTypes {
   type: 'Debito' | 'Credito' | 'Dinherio' | 'Investimento';
-}
-
-interface IconsType {
-  name: string;
-  icon: string;
 }
 
 @Component({
@@ -43,13 +35,7 @@ export class CreateTransactionComponent implements OnInit {
   categoryArray!: CategoryTypes[];
   categorySelected!: CategoryTypes;
 
-  iconArray!: IconsType[];
-  iconSelected!: IconsType;
-
   newTransaction!: FormGroup;
-
-  // flowIncome = this.flow('Income');
-  // flowOutcome = this.flow('Outcome');
 
   flowSelected!: string;
 
@@ -61,10 +47,9 @@ export class CreateTransactionComponent implements OnInit {
 
   ngOnInit(): void {
     this.newTransaction = this.formBuilder.group<TransactionTypes>({
-      name: '',
+      title: '',
       date: '',
-      flow: '',
-      value: 0,
+      amaout: 0,
       status: 'Pendente',
       category: '',
       description: '',
@@ -73,7 +58,9 @@ export class CreateTransactionComponent implements OnInit {
       iconCategory: '',
       wallet: {
         id: undefined,
+        user: '',
         name: '',
+        balance: 0,
         income: 0,
         outcome: 0,
       },
@@ -87,18 +74,11 @@ export class CreateTransactionComponent implements OnInit {
     ];
     this.statusArray = [{ status: 'Pago' }, { status: 'Planejado' }, { status: 'Pendente' }];
     this.categoryArray = [
-      { category: 'Compras' },
-      { category: 'Alimentação' },
-      { category: 'Salario' },
-      { category: 'Transporte' },
-      { category: 'Viagem' },
-    ];
-
-    this.iconArray = [
-      { name: 'Money', icon: 'pi-money-bill' },
-      { name: 'Mobile', icon: 'pi-mobile' },
-      { name: 'Work', icon: 'pi-briefcase' },
-      { name: 'Camera', icon: 'pi-camera' },
+      { category: 'Compras', icon: 'pi-shopping-cart' },
+      { category: 'Alimentação', icon: 'pi-apple' },
+      { category: 'Salario', icon: 'pi-money-bill' },
+      { category: 'Transporte', icon: 'pi-send' },
+      { category: 'Viagem', icon: 'pi-camera' },
     ];
 
     this.sharedService.getAllWallets().then((wallets) => {

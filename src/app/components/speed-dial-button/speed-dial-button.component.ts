@@ -12,9 +12,9 @@ import { MenuItem } from 'primeng/api';
 export class SpeedDialButtonComponent implements OnInit {
   tooltipItems!: MenuItem[];
 
-  display = false;
-  displayInfos = true;
-  displayTransaction = false;
+  display = true;
+  displayInfos = false;
+  displayTransaction = true;
   columDashboardMain = 'p-col-8';
 
   constructor(public functionalities: Functionalities) {}

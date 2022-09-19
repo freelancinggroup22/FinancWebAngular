@@ -5,7 +5,7 @@
       <div class="p-field p-col-6">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
-          <input type="text" pInputText placeholder="Transação" formControlName="name" />
+          <input type="text" pInputText placeholder="Transação" formControlName="title" />
         </div>
       </div>
       <!-- Transação -->
@@ -19,7 +19,7 @@
             inputId="stacked"
             mode="currency"
             currency="BRL"
-            formControlName="value"
+            formControlName="amaout"
           >
           </p-inputNumber>
         </div>
@@ -126,16 +126,17 @@
             </div>
           </ng-template>
           <ng-template let-categorys pTemplate="item">
-            <div class="country-item">
+            <div class="country-item p-d-flex">
+              <i class="pi {{ categorys.icon }}" style="margin-right: 10px; font-size: 1rem"></i>
               <div>{{ categorys.category }}</div>
             </div>
           </ng-template>
         </p-dropdown>
       </div>
 
-      <div class="p-field p-col-6">
+      <!-- <div class="p-field p-col-6">
         <div class="p-inputgroup">
-          <!-- <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span> -->
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
           <input type="text" pInputText placeholder="Nova categoria" formControlName="category" />
 
           <button
@@ -153,7 +154,7 @@
             styleClass="p-button-danger"
           ></button>
         </div>
-      </div>
+      </div> -->
       <!-- Categoria -->
 
       <!-- Tipo -->
@@ -187,33 +188,6 @@
         <input type="text" pInputText placeholder="Descrição" formControlName="description" />
       </div>
       <!-- Descrição -->
-
-      <!-- dropdown Icons-->
-      <div class="p-field p-col-6">
-        <p-dropdown
-          [options]="iconArray"
-          [(ngModel)]="iconSelected"
-          optionLabel="name"
-          formControlName="iconCategory"
-          [filter]="true"
-          filterBy="name"
-          [showClear]="true"
-          placeholder="Icone da Categoria"
-        >
-          <ng-template pTemplate="selectedItem">
-            <div class="country-item country-item-value" *ngIf="iconSelected">
-              <div>{{ iconSelected.name }}</div>
-            </div>
-          </ng-template>
-          <ng-template let-iconList pTemplate="item">
-            <div class="country-item p-d-flex">
-              <i class="pi {{ iconList.icon }}" style="margin-right: 10px; font-size: 1rem"></i>
-              <div>{{ iconList.name }}</div>
-            </div>
-          </ng-template>
-        </p-dropdown>
-      </div>
-      <!-- dropdown Icons-->
 
       <!-- Flow -->
       <div class="p-field p-col-6 p-d-flex">
