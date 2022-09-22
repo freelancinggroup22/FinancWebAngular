@@ -1,0 +1,222 @@
+<form [formGroup]="newTransaction">
+  <div class="p-fluid p-formgrid p-grid p-d-flex p-jc-center">
+    <!-- Transação -->
+    <div class="p-field p-col-10">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
+        <input type="text" pInputText placeholder="Transação" formControlName="title" />
+      </div>
+    </div>
+    <!-- Transação -->
+
+    <!-- Valor -->
+    <div class="p-field p-col-10">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+        <p-inputNumber
+          [showButtons]="true"
+          inputId="stacked"
+          mode="currency"
+          currency="BRL"
+          formControlName="amaout"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+    <!-- Valor -->
+
+    <!-- Data -->
+    <div class="p-field p-col-10">
+      <p-calendar
+        [showIcon]="true"
+        inputId="icon"
+        formControlName="date"
+        dateFormat="dd/mm/yy"
+        [showButtonBar]="true"
+        placeholder="Data"
+        yearRange="2000:2030"
+      >
+      </p-calendar>
+    </div>
+    <!-- Data -->
+
+    <!-- dropdown Carteira-->
+    <div class="p-field p-col-10">
+      <p-dropdown
+        [options]="walletsArray"
+        [(ngModel)]="walletSelected"
+        formControlName="wallet"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Carteira"
+      >
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="walletSelected">
+            <div>{{ walletSelected.name }}</div>
+          </div>
+        </ng-template>
+        <ng-template let-wallet pTemplate="item">
+          <div class="country-item">
+            <div>{{ wallet.name }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+    <!-- dropdown Carteira-->
+
+    <!-- dropdown Status-->
+    <div class="p-field p-col-10">
+      <p-dropdown
+        [options]="statusArray"
+        [(ngModel)]="statusSelected"
+        optionLabel="status"
+        formControlName="status"
+        [filter]="true"
+        filterBy="status"
+        [showClear]="true"
+        placeholder="Status"
+      >
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="statusSelected">
+            <div>{{ statusSelected.status }}</div>
+          </div>
+        </ng-template>
+        <ng-template let-state pTemplate="item">
+          <div class="country-item">
+            <div>{{ state.status }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+    <!-- dropdown Status-->
+
+    <!-- Categoria -->
+    <div class="p-field p-col-10">
+      <p-dropdown
+        [options]="categoryArray"
+        [(ngModel)]="categorySelected"
+        optionLabel="category"
+        formControlName="category"
+        [filter]="true"
+        filterBy="category"
+        [showClear]="true"
+        placeholder="Escolher categoria"
+      >
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="categorySelected">
+            <div>{{ categorySelected.category }}</div>
+          </div>
+        </ng-template>
+        <ng-template let-categorys pTemplate="item">
+          <div class="country-item p-d-flex">
+            <i class="pi {{ categorys.icon }}" style="margin-right: 10px; font-size: 1rem"></i>
+            <div>{{ categorys.category }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+
+    <!-- <div class="p-field p-col-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <input type="text" pInputText placeholder="Nova categoria" formControlName="category" />
+
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-check"
+            styleClass="p-button-success"
+          ></button>
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-times"
+            styleClass="p-button-danger"
+          ></button>
+        </div>
+      </div> -->
+    <!-- Categoria -->
+
+    <!-- Tipo -->
+    <div class="p-field p-col-10">
+      <p-dropdown
+        [options]="typeArray"
+        [(ngModel)]="typeSelected"
+        optionLabel="type"
+        formControlName="type"
+        [filter]="true"
+        filterBy="type"
+        [showClear]="true"
+        placeholder="Escolher tipo"
+      >
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="typeSelected">
+            <div>{{ typeSelected.type }}</div>
+          </div>
+        </ng-template>
+        <ng-template let-types pTemplate="item">
+          <div class="country-item">
+            <div>{{ types.type }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+    <!-- Tipo -->
+
+    <!-- Descrição -->
+    <div class="p-field p-col-10">
+      <input type="text" pInputText placeholder="Descrição" formControlName="description" />
+    </div>
+    <!-- Descrição -->
+
+    <!-- Flow -->
+    <div class="p-field p-col-10 p-d-flex">
+      <button
+        pButton
+        pRipple
+        class="p-button-rounded p-button-secondary"
+        label="Outcome"
+        type="button"
+        icon="pi pi-arrow-circle-down"
+        iconPos="right"
+        (click)="flow('Outcome')"
+      ></button>
+      <button
+        pButton
+        pRipple
+        class="p-button-rounded p-button-success"
+        label="Income"
+        type="button"
+        icon="pi pi-arrow-circle-up"
+        iconPos="right"
+        (click)="flow('Income')"
+      ></button>
+    </div>
+    <!-- Flow -->
+  </div>
+</form>
+<div class="card p-d-flex p-jc-between" style="width: 100%">
+  <div class="p-d-flex">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-trash"
+      class="p-ml-6 p-mr-2 p-button-danger"
+    ></button>
+    <button pButton pRipple type="button" icon="pi pi-copy" class="p-mr-2"></button>
+  </div>
+  <div>
+    <button
+      pButton
+      pRipple
+      class="p-ml-auto p-mr-6 p-button-success"
+      (click)="handleCreateTransaction()"
+      icon="pi pi-check"
+    ></button>
+  </div>
+</div>
