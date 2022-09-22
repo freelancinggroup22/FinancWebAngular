@@ -200,14 +200,25 @@
       <!-- Flow -->
     </div>
   </form>
-</div>
-<div class="p-d-flex card">
-  <button pButton pRipple type="button" icon="pi pi-trash" class="p-mr-2 p-button-danger"></button>
-  <button pButton pRipple type="button" icon="pi pi-copy" class="p-mr-2"></button>
-  <button
-    pButton
-    class="p-ml-auto p-button-success"
-    (click)="handleCreateTransaction()"
-    label="Ok"
-  ></button>
+  <div class="card p-d-flex p-jc-between" style="width: 100%">
+    <div class="p-d-flex">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-trash"
+        class="p-ml-6 p-mr-2 p-button-danger"
+      ></button>
+      <button pButton pRipple type="button" icon="pi pi-copy" class="p-mr-2"></button>
+    </div>
+    <div>
+      <button
+        pButton
+        pRipple
+        class="p-ml-auto p-mr-6 p-button-success"
+        (click)="handleCreateTransaction()"
+        icon="pi pi-check"
+      ></button>
+    </div>
+  </div>
 </div>
