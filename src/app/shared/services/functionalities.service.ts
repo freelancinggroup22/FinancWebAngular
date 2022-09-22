@@ -13,6 +13,7 @@ const CurrencyLangs: Record<CurrencyTypes, string> = {
 export class Functionalities {
   @Input() displayInfos = true;
   @Input() displayTransaction = false;
+  @Input() displayWallet = false;
   @Input() columDashboardMain = 'p-col-8';
 
   constructor() {}
@@ -62,6 +63,13 @@ export class Functionalities {
 
   showTransaction() {
     this.displayInfos = false;
+    this.displayWallet = false;
     this.displayTransaction = true;
+  }
+
+  showWallet() {
+    this.displayInfos = false;
+    this.displayTransaction = false;
+    this.displayWallet = true;
   }
 }

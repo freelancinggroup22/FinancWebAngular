@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SharedService, TransactionTypes, Functionalities } from 'src/app/shared';
 
@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   transactionsDashboard!: TransactionTypes[];
 
   displayInfos!: boolean;
+  displayWallet!: boolean;
   displayTransaction!: boolean;
 
   ngOnInit(): void {
@@ -26,11 +27,18 @@ export class DashboardComponent implements OnInit {
     this.displayInfos = true;
     this.displayTransaction = false;
   }
+  closeWallet() {
+    this.displayInfos = true;
+    this.displayWallet = false;
+  }
 
   onDisplayInfos(event: boolean) {
     this.displayInfos = event;
   }
   onDisplayTransaction(event: boolean) {
     this.displayTransaction = event;
+  }
+  onDisplayWallet(event: boolean) {
+    this.displayWallet = event;
   }
 }

@@ -36,6 +36,7 @@ import {
   MenuComponent,
   SpeedDialButtonComponent,
   TransactionsComponent,
+  CreateWalletsComponent,
 } from 'src/app/components';
 
 @NgModule({
@@ -49,6 +50,7 @@ import {
     CarouselWalletsComponent,
     CardTransactionComponent,
     SpeedDialButtonComponent,
+    CreateWalletsComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +95,7 @@ import {
     CarouselWalletsComponent,
     CardTransactionComponent,
     SpeedDialButtonComponent,
+    CreateWalletsComponent,
 
     // NG Modules
     AccordionModule,

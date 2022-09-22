@@ -1,0 +1,31 @@
+<form action="">
+  <div class="p-fluid p-formgrid p-grid p-d-flex p-jc-center">
+    <div class="p-field p-col-10">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
+        <input type="text" pInputText placeholder="Carteira" formControlName="name" />
+      </div>
+    </div>
+  </div>
+</form>
+<div class="card p-d-flex p-jc-between" style="width: 100%">
+  <div class="p-d-flex">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-trash"
+      class="p-ml-6 p-mr-2 p-button-danger"
+    ></button>
+    <button pButton pRipple type="button" icon="pi pi-copy" class="p-mr-2"></button>
+  </div>
+  <div>
+    <button
+      pButton
+      pRipple
+      class="p-ml-auto p-mr-6 p-button-success"
+      (click)="handleCreateWallet()"
+      icon="pi pi-check"
+    ></button>
+  </div>
+</div>

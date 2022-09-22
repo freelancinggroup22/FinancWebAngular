@@ -13,6 +13,7 @@ export class SpeedDialButtonComponent implements OnInit {
   tooltipItems!: MenuItem[];
 
   @Output() displayInfos = new EventEmitter();
+  @Output() displayWallet = new EventEmitter();
   @Output() displayTransaction = new EventEmitter();
   columDashboardMain = 'p-col-8';
 
@@ -24,7 +25,10 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltip: 'Nova Carteira',
         icon: 'pi pi-wallet',
         tooltipPosition: 'left',
-        command: () => {},
+        command: () => {
+          this.functionalities.showWallet();
+          this.displayController();
+        },
       },
       {
         tooltip: 'Nova Transação',
@@ -32,12 +36,17 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltipPosition: 'left',
         command: () => {
           this.functionalities.showTransaction();
-          const { displayInfos, displayTransaction } = this.functionalities;
-
-          this.displayInfos.emit(displayInfos);
-          this.displayTransaction.emit(displayTransaction);
+          this.displayController();
         },
       },
     ];
+  }
+
+  displayController() {
+    const { displayInfos, displayWallet, displayTransaction } = this.functionalities;
+
+    this.displayInfos.emit(displayInfos);
+    this.displayWallet.emit(displayWallet);
+    this.displayTransaction.emit(displayTransaction);
   }
 }

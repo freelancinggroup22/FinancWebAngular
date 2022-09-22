@@ -32,7 +32,7 @@
   </div>
 
   <div class="p-col-4" *ngIf="displayTransaction">
-    <p-panel header="Transação">
+    <p-panel header="Nova Transação">
       <ng-template pTemplate="icons">
         <button
           pButton
@@ -46,9 +46,27 @@
       <app-create-transaction></app-create-transaction>
     </p-panel>
   </div>
+
+  <div class="p-col-4" *ngIf="displayWallet">
+    <p-panel header="Nova Carteira">
+      <ng-template pTemplate="icons">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-times"
+          class="p-button-rounded p-button-danger"
+          (click)="closeWallet()"
+        ></button>
+      </ng-template>
+      <app-create-wallets></app-create-wallets>
+    </p-panel>
+  </div>
+
   <app-speed-dial-button
     #DialButton
     (displayInfos)="onDisplayInfos($event)"
+    (displayWallet)="onDisplayWallet($event)"
     (displayTransaction)="onDisplayTransaction($event)"
   ></app-speed-dial-button>
 </div>
