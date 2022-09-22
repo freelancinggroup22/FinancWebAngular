@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { SharedService, TransactionTypes } from 'src/app/shared';
+import { SharedService, TransactionTypes, Functionalities } from 'src/app/shared';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,20 +8,29 @@ import { SharedService, TransactionTypes } from 'src/app/shared';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, public funcionalities: Functionalities) {}
 
   transactionsDashboard!: TransactionTypes[];
+
+  displayInfos!: boolean;
   displayTransaction!: boolean;
 
-  @Input() newTransaction: any;
+  ngOnInit(): void {
+    const { displayInfos, displayTransaction } = this.funcionalities;
 
-  ngOnInit(): void {}
-
-  transactionButton() {
-    return !this.newTransaction;
+    this.displayInfos = displayInfos;
+    this.displayTransaction = displayTransaction;
   }
 
-  handleButtonEmit(event: any) {}
+  closeTransaction() {
+    this.displayInfos = true;
+    this.displayTransaction = false;
+  }
 
-  diplayController() {}
+  onDisplayInfos(event: boolean) {
+    this.displayInfos = event;
+  }
+  onDisplayTransaction(event: boolean) {
+    this.displayTransaction = event;
+  }
 }

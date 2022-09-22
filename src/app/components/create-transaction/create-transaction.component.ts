@@ -96,8 +96,6 @@ export class CreateTransactionComponent implements OnInit {
 
   getWalletId(walletId: any) {
     this.newTransaction.patchValue({ walletId });
-    // this.newTransaction.patchValue({ wallet: { id: walletId } });
-    console.log('Debugger in CreateTransactionComponent:', walletId);
   }
 
   handleCreateTransaction() {

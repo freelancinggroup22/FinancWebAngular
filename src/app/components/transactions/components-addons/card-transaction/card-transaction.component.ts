@@ -31,4 +31,8 @@ export class CardTransactionComponent implements OnInit {
       });
     });
   }
+
+  // callCards(id: number) {
+  //   this.objeto = this.sharedService.getOneWallet(id);
+  // }
 }

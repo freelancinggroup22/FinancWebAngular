@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Functionalities } from 'src/app/shared';
 
@@ -12,16 +12,13 @@ import { MenuItem } from 'primeng/api';
 export class SpeedDialButtonComponent implements OnInit {
   tooltipItems!: MenuItem[];
 
-  display = true;
-  displayInfos = false;
-  displayTransaction = true;
+  @Output() displayInfos = new EventEmitter();
+  @Output() displayTransaction = new EventEmitter();
   columDashboardMain = 'p-col-8';
 
   constructor(public functionalities: Functionalities) {}
 
   ngOnInit(): void {
-    const { display, displayInfos, displayTransaction, columDashboardMain } = this.functionalities;
-
     this.tooltipItems = [
       {
         tooltip: 'Nova Carteira',
@@ -34,30 +31,13 @@ export class SpeedDialButtonComponent implements OnInit {
         icon: 'pi pi-money-bill',
         tooltipPosition: 'left',
         command: () => {
-          this.showTransaction(display, displayInfos, displayTransaction, columDashboardMain);
+          this.functionalities.showTransaction();
+          const { displayInfos, displayTransaction } = this.functionalities;
+
+          this.displayInfos.emit(displayInfos);
+          this.displayTransaction.emit(displayTransaction);
         },
       },
     ];
-  }
-
-  showTransaction(
-    display: boolean,
-    displayInfos: boolean,
-    displayTransaction: boolean,
-    columDashboardMain: string,
-  ) {
-    this.display = display;
-    this.displayInfos = displayInfos;
-    this.displayTransaction = displayTransaction;
-    this.columDashboardMain = columDashboardMain;
-
-    console.log(
-      'Debugger in SpeedDialButtonComponent:',
-      this.display,
-      ' : ',
-      this.displayInfos,
-      ' : ',
-      this.displayTransaction,
-    );
   }
 }

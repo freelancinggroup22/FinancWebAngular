@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Output, Input } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 
 type CurrencyTypes = 'BRL' | 'USD';
 
@@ -11,17 +11,6 @@ const CurrencyLangs: Record<CurrencyTypes, string> = {
   providedIn: 'root',
 })
 export class Functionalities {
-  // display = false;
-  // displayInfos = true;
-  // displayTransaction = false;
-  // columDashboardMain = 'p-col-8';
-
-  @Output() displayEmitte = new EventEmitter();
-  @Output() displayInfosEmitte = new EventEmitter();
-  @Output() displayTransactionEmitte = new EventEmitter();
-  @Output() columDashboardMainEmitte = new EventEmitter();
-
-  @Input() display = false;
   @Input() displayInfos = true;
   @Input() displayTransaction = false;
   @Input() columDashboardMain = 'p-col-8';
@@ -72,14 +61,7 @@ export class Functionalities {
   }
 
   showTransaction() {
-    this.displayInfosEmitte.emit(!this.displayInfos);
-    this.displayTransactionEmitte.emit(!this.displayTransaction);
-
-    console.log(
-      'Debugger in FunctionalitiesService:',
-      this.displayInfos,
-      ' : ',
-      this.displayTransaction,
-    );
+    this.displayInfos = false;
+    this.displayTransaction = true;
   }
 }

@@ -1,5 +1,5 @@
 <div class="p-grid nested-grid">
-  <div class="p-col-4" *ngIf="DialButton.displayInfos">
+  <div class="p-col-4" *ngIf="displayInfos">
     <div class="p-grid">
       <div class="p-col-12">
         <p-panel header="Calendário" class="box box-stretched" [toggleable]="true"
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="p-col-4" *ngIf="DialButton.displayTransaction">
+  <div class="p-col-4" *ngIf="displayTransaction">
     <p-panel header="Transação">
       <ng-template pTemplate="icons">
         <button
@@ -40,11 +40,15 @@
           type="button"
           icon="pi pi-times"
           class="p-button-rounded p-button-danger"
-          (click)="diplayController()"
+          (click)="closeTransaction()"
         ></button>
       </ng-template>
       <app-create-transaction></app-create-transaction>
     </p-panel>
   </div>
-  <app-speed-dial-button #DialButton></app-speed-dial-button>
+  <app-speed-dial-button
+    #DialButton
+    (displayInfos)="onDisplayInfos($event)"
+    (displayTransaction)="onDisplayTransaction($event)"
+  ></app-speed-dial-button>
 </div>
