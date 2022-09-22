@@ -79,6 +79,7 @@ export class CreateTransactionComponent implements OnInit {
       { category: 'Salario', icon: 'pi-money-bill' },
       { category: 'Transporte', icon: 'pi-send' },
       { category: 'Viagem', icon: 'pi-camera' },
+      { category: 'Investimento', icon: 'pi-dollar' },
     ];
 
     this.sharedService.getAllWallets().then((wallets) => {

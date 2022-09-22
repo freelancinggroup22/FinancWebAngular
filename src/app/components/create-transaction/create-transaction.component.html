@@ -2,7 +2,7 @@
   <form [formGroup]="newTransaction">
     <div class="p-fluid p-formgrid p-grid p-d-flex p-jc-center">
       <!-- Transação -->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
           <input type="text" pInputText placeholder="Transação" formControlName="title" />
@@ -11,7 +11,7 @@
       <!-- Transação -->
 
       <!-- Valor -->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
           <p-inputNumber
@@ -27,7 +27,7 @@
       <!-- Valor -->
 
       <!-- Data -->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <p-calendar
           [showIcon]="true"
           inputId="icon"
@@ -42,7 +42,7 @@
       <!-- Data -->
 
       <!-- dropdown Carteira-->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <p-dropdown
           [options]="walletsArray"
           [(ngModel)]="walletSelected"
@@ -68,7 +68,7 @@
       <!-- dropdown Carteira-->
 
       <!-- dropdown Status-->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <p-dropdown
           [options]="statusArray"
           [(ngModel)]="statusSelected"
@@ -93,23 +93,8 @@
       </div>
       <!-- dropdown Status-->
 
-      <!-- Parcelas -->
-      <div class="p-field p-col-6">
-        <p-inputNumber
-          mode="decimal"
-          [showButtons]="true"
-          inputId="minmax-buttons"
-          [min]="0"
-          [max]="100"
-          placeholder="Parcelas"
-          formControlName="installments"
-        >
-        </p-inputNumber>
-      </div>
-      <!-- Parcelas -->
-
       <!-- Categoria -->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <p-dropdown
           [options]="categoryArray"
           [(ngModel)]="categorySelected"
@@ -158,7 +143,7 @@
       <!-- Categoria -->
 
       <!-- Tipo -->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <p-dropdown
           [options]="typeArray"
           [(ngModel)]="typeSelected"
@@ -184,13 +169,13 @@
       <!-- Tipo -->
 
       <!-- Descrição -->
-      <div class="p-field p-col-6">
+      <div class="p-field p-col-10">
         <input type="text" pInputText placeholder="Descrição" formControlName="description" />
       </div>
       <!-- Descrição -->
 
       <!-- Flow -->
-      <div class="p-field p-col-6 p-d-flex">
+      <div class="p-field p-col-10 p-d-flex">
         <button
           pButton
           pRipple

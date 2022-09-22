@@ -23,11 +23,10 @@ export class CardTransactionComponent implements OnInit {
 
   callCards(id: number) {
     this.sharedService.getOneWallet(id).then((wallets) => {
-      return wallets.map((wallet) => {
+      wallets.forEach((wallet) => {
         if (wallet.transactions) {
-          return (this.objeto = wallet.transactions);
+          this.objeto = wallet.transactions;
         }
-        return;
       });
     });
   }
