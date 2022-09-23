@@ -17,18 +17,18 @@ const routes: Routes = [
   // Pages
 
   // Produção
-  // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  // { path: 'help', component: HelpComponent, canActivate: [AuthGuard] },
-  // { path: 'investment', component: InvestmentComponent, canActivate: [AuthGuard] },
-  // { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-  // { path: 'wallets', component: WalletsComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'help', component: HelpComponent, canActivate: [AuthGuard] },
+  { path: 'investment', component: InvestmentComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'wallets', component: WalletsComponent, canActivate: [AuthGuard] },
 
   // Desenvolvimento
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'help', component: HelpComponent },
-  { path: 'investment', component: InvestmentComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'wallets', component: WalletsComponent },
+  // { path: 'dashboard', component: DashboardComponent },
+  // { path: 'help', component: HelpComponent },
+  // { path: 'investment', component: InvestmentComponent },
+  // { path: 'settings', component: SettingsComponent },
+  // { path: 'wallets', component: WalletsComponent },
 
   // Auth
   { path: 'login', component: LoginComponent },
