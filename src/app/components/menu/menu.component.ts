@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 import { AuthService } from 'src/app/Auth/auth.service';
-
-import { MenuItem } from 'primeng/api';
+import { Functionalities } from 'src/app/shared';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +10,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./menu.component.sass'],
 })
 export class MenuComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, public functionalities: Functionalities) {}
 
   items: MenuItem[] = [];
   urlAvatar = 'assets/showcase/images/demo/walter.jpg';
@@ -45,5 +45,6 @@ export class MenuComponent implements OnInit {
 
   signOut() {
     this.authService.callLogout();
+    this.functionalities.closeTransactionWallet();
   }
 }

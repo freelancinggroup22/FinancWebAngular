@@ -72,4 +72,10 @@ export class Functionalities {
     this.displayTransaction = false;
     this.displayWallet = true;
   }
+
+  closeTransactionWallet() {
+    this.displayInfos = true;
+    this.displayWallet = false;
+    this.displayTransaction = false;
+  }
 }
