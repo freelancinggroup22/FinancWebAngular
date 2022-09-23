@@ -1,5 +1,6 @@
 import { WalletsTypes } from './wallets.interface';
 export interface TransactionTypes {
+  id?: string;
   category: string;
   date: string;
   description: string;

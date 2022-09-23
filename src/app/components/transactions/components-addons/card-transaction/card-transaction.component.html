@@ -1,17 +1,21 @@
-<div class="card-transaction" *ngFor="let transaction of objeto">
-  <div class="icon + {{ transaction.type }}">
-    <i class="pi + {{ transaction.iconCategory }}"></i>
-    <span>{{ transaction.status }}</span>
-  </div>
-  <div class="card-body">
-    <div class="card-info">
-      <h2>{{ transaction.title }}</h2>
-      <span class="card-span">{{ functionalities.formatText(transaction.category) }}</span>
-    </div>
-    <div class="card-price">
-      <h2>{{ functionalities.formatCurrency(transaction.amaout) }}</h2>
+<div class="card" *ngFor="let transaction of objeto">
+  <button (click)="transactionFun(transaction.id)">
+    <div class="card-transaction">
+      <div class="icon + {{ transaction.type }}">
+        <i class="pi + {{ transaction.iconCategory }}"></i>
+        <span>{{ transaction.status }}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-info">
+          <h2>{{ transaction.title }}</h2>
+          <span class="card-span">{{ functionalities.formatText(transaction.category) }}</span>
+        </div>
+        <div class="card-price">
+          <h2>{{ functionalities.formatCurrency(transaction.amaout) }}</h2>
 
-      <span class="card-span">{{ transaction.date }}</span>
+          <span class="card-span">{{ transaction.date }}</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </button>
 </div>

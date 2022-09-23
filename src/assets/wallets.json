@@ -8,6 +8,7 @@
       "type": "Balanco",
       "transactions": [
         {
+          "id": "dd90-1-03e199d91",
           "title": "Salario",
           "date": "5/8/2022",
           "amaout": 3800,
@@ -28,6 +29,7 @@
       "type": "Salario",
       "transactions": [
         {
+          "id": "231asd-1-dad1q",
           "title": "Salario",
           "date": "5/8/2022",
           "amaout": 3800,
@@ -39,6 +41,7 @@
           "iconCategory": "pi-dollar"
         },
         {
+          "id": "312d-1-1312d12fe23f",
           "title": "Adega",
           "date": "5/8/2022",
           "amaout": 31.0,
@@ -50,6 +53,7 @@
           "iconCategory": "pi-shopping-cart"
         },
         {
+          "id": "13sd1-1-1231sss1sa1",
           "title": "Mercado livre",
           "date": "6/8/2022",
           "amaout": 35.0,
