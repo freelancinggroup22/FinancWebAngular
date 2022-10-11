@@ -4,3 +4,18 @@ export interface UserTypes {
   email?: string;
   wallets?: [];
 }
+
+export interface AccountTypes {
+  email: string;
+  password: string;
+}
+
+export interface AccountResponseTypes {
+  value: { uid: string; displayName: string; refreshToken: string };
+}
+
+export interface RegisterTypes {
+  name: string;
+  email: string;
+  password: string;
+}

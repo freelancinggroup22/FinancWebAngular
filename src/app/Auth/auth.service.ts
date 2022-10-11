@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from './../../environments/environment';
 
-import { UserTypes } from 'src/app/shared';
+import { UserTypes, AccountTypes, AccountResponseTypes, RegisterTypes } from 'src/app/shared';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +12,25 @@ export class AuthService {
   // private usuario!: UsuarioTypes;
   private authenticatedUser = false;
 
-  constructor(private router: Router) {}
+  private baseUrl = environment.baseUrl;
+
+  constructor(private router: Router, private http: HttpClient) {}
 
   showMenuEmmiter = new EventEmitter<boolean>();
+
+  // getOneWallet(userId = this.idUser, walletId = this.valueWallet): Observable<WalletsTypes> {
+  //   return this.http.get<WalletsTypes>(`${this.baseUrl}/${userId}/${walletId}`);
+  // }
+
+  userLogin(user: AccountTypes) {
+    this.http
+      .post<AccountResponseTypes>(`${this.baseUrl}/authenticate`, user)
+      .subscribe((response) => {
+        if (response.value.refreshToken) {
+          this.changeValuesAuthMenu(!!response.value.refreshToken, '/dashboard');
+        }
+      });
+  }
 
   changeValuesAuthMenu(state: boolean, router?: string) {
     this.authenticatedUser = state;
@@ -20,18 +38,10 @@ export class AuthService {
     this.router.navigate([router]);
   }
 
-  userLogin(user: UserTypes) {
-    if (user.email != '' && user.password != '' && user.email != null && user.password != null) {
-      this.changeValuesAuthMenu(true, '/dashboard');
-    } else {
-      this.changeValuesAuthMenu(false);
-    }
-  }
-
   userRegister(user: UserTypes) {
-    if (user.email != '' && user.email != null) {
+    this.http.post(`${this.baseUrl}/register`, user).subscribe(() => {
       this.router.navigate(['login']);
-    }
+    });
   }
 
   isAuthenticateUser() {

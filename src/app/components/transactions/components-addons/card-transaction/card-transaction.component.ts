@@ -31,9 +31,7 @@ export class CardTransactionComponent implements OnInit {
     });
   }
 
-  transactionFun(id: any) {
-    console.log('Debugger in TransactionsComponent:', id);
-  }
+  transactionFun(id: any) {}
 
   // callCards(id: number) {
   //   this.objeto = this.sharedService.getOneWallet(id);

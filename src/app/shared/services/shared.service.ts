@@ -32,6 +32,12 @@ export class SharedService {
       });
   }
 
+  getOneWalletTest(id = this.valueWallet) {
+    return this.http.get<any>(this.baseUrl).subscribe({
+      next: (res) => <WalletsTypes[]>res.data,
+    });
+  }
+
   getAllWallets() {
     return this.http
       .get<any>(this.baseUrl)
