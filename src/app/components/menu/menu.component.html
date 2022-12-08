@@ -1,14 +1,17 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="start">
-    <p-avatar
-      [image]="urlAvatar"
-      pBadge
-      value="4"
-      severity="danger"
-      styleClass="p-mr-2"
-      size="large"
-      shape="circle"
-    ></p-avatar>
+    <div class="p-d-flex p-flex-row p-jc-center p-ai-center">
+      <p-avatar
+        [image]="urlAvatar"
+        pBadge
+        value="4"
+        severity="danger"
+        styleClass="p-mr-2"
+        size="large"
+        shape="circle"
+      ></p-avatar>
+      <label>{{ userName ? userName : 'No name user' }}</label>
+    </div>
   </ng-template>
   <button
     pButton

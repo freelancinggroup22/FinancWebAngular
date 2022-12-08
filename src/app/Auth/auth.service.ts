@@ -13,6 +13,7 @@ export class AuthService {
   private authenticatedUser = false;
   private baseUrl = environment.baseUrl;
   private uid = '';
+  private userName = '';
   private headers: HttpHeaders;
 
   showMenuEmmiter = new EventEmitter<boolean>();
@@ -34,12 +35,17 @@ export class AuthService {
     return this.uid;
   }
 
+  getUserName(): string {
+    return this.userName;
+  }
+
   userLogin(user: AccountTypes) {
     this.http
       .post<AccountResponseTypes>(`${this.baseUrl}/authenticate`, user)
       .subscribe((response) => {
         if (response.value.refreshToken) {
           this.uid = response.value.uid;
+          this.userName = response.value.displayName;
           this.setHeaders(response.value.accessToken);
           this.changeValuesAuthMenu(!!response.value.accessToken, '/dashboard');
         }

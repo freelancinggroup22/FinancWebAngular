@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
 
   items: MenuItem[] = [];
   urlAvatar = 'assets/showcase/images/demo/walter.jpg';
+  userName = this.authService.getUserName();
 
   activeItem: MenuItem = this.items[0];
 
@@ -24,22 +25,22 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-home',
         routerLink: '/dashboard',
       },
-      {
-        label: 'Carteiras',
-        icon: 'pi pi-fw pi-wallet',
-        routerLink: '/wallets',
-      },
-      {
-        label: 'Investimento',
-        icon: 'pi pi-fw pi-money-bill',
-        routerLink: '/investment',
-      },
-      { label: 'Ajuda', icon: 'pi pi-fw pi-question', routerLink: '/help' },
-      {
-        label: 'Configurações',
-        icon: 'pi pi-fw pi-cog',
-        routerLink: '/settings',
-      },
+      // {
+      //   label: 'Carteiras',
+      //   icon: 'pi pi-fw pi-wallet',
+      //   routerLink: '/wallets',
+      // },
+      // {
+      //   label: 'Investimento',
+      //   icon: 'pi pi-fw pi-money-bill',
+      //   routerLink: '/investment',
+      // },
+      // { label: 'Ajuda', icon: 'pi pi-fw pi-question', routerLink: '/help' },
+      // {
+      //   label: 'Configurações',
+      //   icon: 'pi pi-fw pi-cog',
+      //   routerLink: '/settings',
+      // },
     ];
   }
 
