@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable, Input, Output, EventEmitter } from '@angular/core';
 
 type CurrencyTypes = 'BRL' | 'USD';
 
@@ -11,6 +11,8 @@ const CurrencyLangs: Record<CurrencyTypes, string> = {
   providedIn: 'root',
 })
 export class Functionalities {
+  @Output() columDashboardMainEmitter = new EventEmitter();
+
   @Input() displayInfos = true;
   @Input() displayTransaction = false;
   @Input() displayWallet = false;

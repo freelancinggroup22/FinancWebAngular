@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   displayWallet!: boolean;
   displayTransaction!: boolean;
 
+  columDashboardMain = 'p-col-12';
+
   ngOnInit(): void {
     const { displayInfos, displayTransaction } = this.funcionalities;
 
@@ -24,10 +26,16 @@ export class DashboardComponent implements OnInit {
   }
 
   closeTransaction() {
+    const { columDashboardMainEmitter } = this.funcionalities;
+    columDashboardMainEmitter.emit(this.columDashboardMain);
+
     this.displayInfos = true;
     this.displayTransaction = false;
   }
   closeWallet() {
+    const { columDashboardMainEmitter } = this.funcionalities;
+    columDashboardMainEmitter.emit(this.columDashboardMain);
+
     this.displayInfos = true;
     this.displayWallet = false;
   }

@@ -30,35 +30,39 @@
   </div>
 
   <div class="p-col-4" *ngIf="displayTransaction">
-    <p-panel header="Nova Transação">
-      <ng-template pTemplate="icons">
-        <button
-          pButton
-          pRipple
-          type="button"
-          icon="pi pi-times"
-          class="p-button-rounded p-button-danger"
-          (click)="closeTransaction()"
-        ></button>
-      </ng-template>
-      <app-create-transaction></app-create-transaction>
-    </p-panel>
+    <div class="p-col-12">
+      <p-panel header="Nova Transação">
+        <ng-template pTemplate="icons">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times"
+            class="p-button-rounded p-button-danger"
+            (click)="closeTransaction()"
+          ></button>
+        </ng-template>
+        <app-create-transaction></app-create-transaction>
+      </p-panel>
+    </div>
   </div>
 
   <div class="p-col-4" *ngIf="displayWallet">
-    <p-panel header="Nova Carteira">
-      <ng-template pTemplate="icons">
-        <button
-          pButton
-          pRipple
-          type="button"
-          icon="pi pi-times"
-          class="p-button-rounded p-button-danger"
-          (click)="closeWallet()"
-        ></button>
-      </ng-template>
-      <app-create-wallets></app-create-wallets>
-    </p-panel>
+    <div class="p-col-12">
+      <p-panel header="Nova Carteira">
+        <ng-template pTemplate="icons">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times"
+            class="p-button-rounded p-button-danger"
+            (click)="closeWallet()"
+          ></button>
+        </ng-template>
+        <app-create-wallets></app-create-wallets>
+      </p-panel>
+    </div>
   </div>
 
   <app-speed-dial-button

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { Functionalities } from 'src/app/shared';
 
@@ -15,11 +15,18 @@ export class SpeedDialButtonComponent implements OnInit {
   @Output() displayInfos = new EventEmitter();
   @Output() displayWallet = new EventEmitter();
   @Output() displayTransaction = new EventEmitter();
+
   columDashboardMain = 'p-col-12';
 
   constructor(public functionalities: Functionalities) {}
 
   ngOnInit(): void {
+    const { columDashboardMainEmitter } = this.functionalities;
+
+    columDashboardMainEmitter.subscribe((value) => {
+      this.columDashboardMain = value;
+    });
+
     this.tooltipItems = [
       {
         tooltip: 'Nova Carteira',
@@ -27,7 +34,6 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltipPosition: 'left',
         command: () => {
           this.functionalities.showWallet();
-          this.columDashboardMain = 'p-col-8';
           this.displayController();
         },
       },
@@ -37,7 +43,6 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltipPosition: 'left',
         command: () => {
           this.functionalities.showTransaction();
-          this.columDashboardMain = 'p-col-8';
           this.displayController();
         },
       },
@@ -45,10 +50,17 @@ export class SpeedDialButtonComponent implements OnInit {
   }
 
   displayController() {
-    const { displayInfos, displayWallet, displayTransaction } = this.functionalities;
+    const {
+      displayInfos,
+      displayWallet,
+      displayTransaction,
+      columDashboardMain,
+      columDashboardMainEmitter,
+    } = this.functionalities;
 
     this.displayInfos.emit(displayInfos);
     this.displayWallet.emit(displayWallet);
     this.displayTransaction.emit(displayTransaction);
+    columDashboardMainEmitter.emit(columDashboardMain);
   }
 }
