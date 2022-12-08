@@ -10,9 +10,9 @@
       <div class="p-d-flex p-flex-column">
         <div class="p-d-flex p-jc-center">
           <div class="card">
-            <div class="p-d-flex p-jc-between p-ai-center">
+            <div class="p-d-flex p-flex-column p-flex-md-row p-jc-between p-ai-center">
               <h1 class="p-mb-1">{{ wallet.name }}</h1>
-              <h4 class="balance">{{ wallet.balance }}</h4>
+              <h1 class="p-mb-1 balance">{{ functionalities.formatCurrency(wallet.balance) }}</h1>
             </div>
             <div class="graphic-bar">
               <div class="income-bar" style="width: {{ wallet.bartIncome }}%"></div>
