@@ -1,5 +1,5 @@
 <div class="p-grid nested-grid">
-  <div class="p-col-4" *ngIf="displayInfos">
+  <!-- <div class="p-col-4" *ngIf="displayInfos">
     <div class="p-grid">
       <div class="p-col-12">
         <p-panel header="Calendário" class="box box-stretched" [toggleable]="true"
@@ -11,23 +11,21 @@
         <p-panel header="Investimentos" class="box box-stretched"></p-panel>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="{{ DialButton.columDashboardMain }}">
-    <div class="p-grid">
-      <div class="p-col-12">
-        <p-panel header="Carteiras" styleClass="dark-panel">
-          <app-carousel-wallets></app-carousel-wallets>
-        </p-panel>
-      </div>
-      <div class="p-col-12">
-        <p-panel header="Transações" class="box box-stretched">
-          <div class="p-grid">
-            <div class="p-col-12">
-              <app-transactions [transactions]="transactionsDashboard"></app-transactions>
-            </div>
+    <div class="p-col-12">
+      <p-panel header="Carteiras" styleClass="dark-panel">
+        <app-carousel-wallets></app-carousel-wallets>
+      </p-panel>
+    </div>
+    <div class="p-col-12">
+      <p-panel header="Transações" class="box box-stretched">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <app-transactions [transactions]="transactionsDashboard"></app-transactions>
           </div>
-        </p-panel>
-      </div>
+        </div>
+      </p-panel>
     </div>
   </div>
 

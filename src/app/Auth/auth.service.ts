@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 
-import { UserTypes, AccountTypes, AccountResponseTypes, RegisterTypes } from 'src/app/shared';
+import { AccountResponseTypes, AccountTypes, UserTypes } from 'src/app/shared';
 
 @Injectable({
   providedIn: 'root',
@@ -11,23 +11,37 @@ import { UserTypes, AccountTypes, AccountResponseTypes, RegisterTypes } from 'sr
 export class AuthService {
   // private usuario!: UsuarioTypes;
   private authenticatedUser = false;
-
   private baseUrl = environment.baseUrl;
-
-  constructor(private router: Router, private http: HttpClient) {}
+  private uid = '';
+  private headers: HttpHeaders;
 
   showMenuEmmiter = new EventEmitter<boolean>();
 
-  // getOneWallet(userId = this.idUser, walletId = this.valueWallet): Observable<WalletsTypes> {
-  //   return this.http.get<WalletsTypes>(`${this.baseUrl}/${userId}/${walletId}`);
-  // }
+  constructor(private router: Router, private http: HttpClient) {}
+
+  setHeaders(token: string) {
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+  }
+
+  getHeader(): HttpHeaders {
+    return this.headers;
+  }
+
+  getUserId(): string {
+    return this.uid;
+  }
 
   userLogin(user: AccountTypes) {
     this.http
       .post<AccountResponseTypes>(`${this.baseUrl}/authenticate`, user)
       .subscribe((response) => {
         if (response.value.refreshToken) {
-          this.changeValuesAuthMenu(!!response.value.refreshToken, '/dashboard');
+          this.uid = response.value.uid;
+          this.setHeaders(response.value.accessToken);
+          this.changeValuesAuthMenu(!!response.value.accessToken, '/dashboard');
         }
       });
   }

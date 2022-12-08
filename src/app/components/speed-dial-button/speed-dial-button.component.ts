@@ -15,7 +15,7 @@ export class SpeedDialButtonComponent implements OnInit {
   @Output() displayInfos = new EventEmitter();
   @Output() displayWallet = new EventEmitter();
   @Output() displayTransaction = new EventEmitter();
-  columDashboardMain = 'p-col-8';
+  columDashboardMain = 'p-col-12';
 
   constructor(public functionalities: Functionalities) {}
 
@@ -27,6 +27,7 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltipPosition: 'left',
         command: () => {
           this.functionalities.showWallet();
+          this.columDashboardMain = 'p-col-8';
           this.displayController();
         },
       },
@@ -36,6 +37,7 @@ export class SpeedDialButtonComponent implements OnInit {
         tooltipPosition: 'left',
         command: () => {
           this.functionalities.showTransaction();
+          this.columDashboardMain = 'p-col-8';
           this.displayController();
         },
       },

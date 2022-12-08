@@ -82,8 +82,9 @@ export class CreateTransactionComponent implements OnInit {
       { category: 'Investimento', icon: 'pi-dollar' },
     ];
 
-    this.sharedService.getAllWallets().then((wallets) => {
-      this.walletsArray = wallets.filter((wallet) => wallet.name !== 'Total');
+    this.sharedService.getAllWallets().subscribe((wallets) => {
+      // console.log('Debugger in CreateTransactionComponent:', wallets);
+      // this.walletsArray = wallets.filter((wallet) => wallet.name !== 'Total');
     });
 
     this.primengConfig.ripple = true;

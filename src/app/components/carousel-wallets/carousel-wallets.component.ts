@@ -16,34 +16,40 @@ interface BarsTypes {
 })
 export class CarouselWalletsComponent implements OnInit {
   wallets!: WalletsTypes[];
-  bars: BarsTypes[] = [];
+  bars: BarsTypes[];
 
   incomeFormatted!: string;
   outcomeFormatted!: string;
 
   constructor(private sharedService: SharedService, public functionalities: Functionalities) {}
 
-  // TODO: trocar o map para forEatch
-
   ngOnInit(): void {
-    this.sharedService
-      .getAllWallets()
-      .then((wallets) => {
-        this.wallets = wallets;
-      })
-      .then(() =>
-        this.wallets.map((wallet) => {
-          const { income, outcome } = wallet;
-          const { _income, _outcome } = this.functionalities.calculatePercentage(
-            Number(income),
-            Number(outcome),
-          );
+    this.sharedService.getAllWallets().subscribe((wallets) => {
+      // console.log('Debugger in CreateTransactionComponent:', wallets);0
 
-          this.bars.push({ barIncome: _income, barOutcome: _outcome });
+      this.wallets = wallets.value.map((wallet) => {
+        return {
+          id: wallet._id,
+          user: wallet.props.user,
+          name: wallet.props.title,
+          balance: wallet.props.balance,
+          income: wallet.props.incomes,
+          outcome: wallet.props.outcomes,
+        };
+      });
 
-          if (Number(wallet.id) === 0) this.emmitIdWallet(0);
-        }),
-      );
+      this.wallets = this.wallets.map((wallet) => {
+        const { income, outcome } = wallet;
+        const { _income, _outcome } = this.functionalities.calculatePercentage(
+          Number(income),
+          Number(outcome),
+        );
+
+        if (Number(wallet.id) === 0) this.emmitIdWallet(0);
+
+        return { ...wallet, bartIncome: _income, barOutcome: _outcome };
+      });
+    });
   }
 
   emmitIdWallet(id: number) {

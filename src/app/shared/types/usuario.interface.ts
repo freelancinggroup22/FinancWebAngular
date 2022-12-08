@@ -11,7 +11,7 @@ export interface AccountTypes {
 }
 
 export interface AccountResponseTypes {
-  value: { uid: string; displayName: string; refreshToken: string };
+  value: { uid: string; displayName: string; refreshToken: string; accessToken: string };
 }
 
 export interface RegisterTypes {
